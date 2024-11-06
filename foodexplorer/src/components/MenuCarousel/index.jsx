@@ -8,7 +8,7 @@ register();
 import "swiper/css";
 import "swiper/css/pagination";
 
-export function MenuCarousel({title}) {
+export function MenuCarousel({title}) {  
   return (
     <Container>
       <Heading title={title} />
