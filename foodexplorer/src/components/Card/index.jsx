@@ -3,6 +3,7 @@ import { Button } from "../Button";
 import { PiPlus, PiMinus } from "react-icons/pi";
 import { useReducer, useContext } from "react";
 import { CounterContext } from "../../contexts/CounterContext";
+import { DishesContext } from "../../contexts/DishesContext";
 
 const initializeState = { count: 1 };
 
@@ -20,6 +21,8 @@ function reducer(state, action) {
 export function Card() {
   const [state, dispatch] = useReducer(reducer, initializeState);
   const { setCount } = useContext(CounterContext);
+
+  const dishes = useContext(DishesContext);
 
   const handleAddToCart = () => {
     setCount(prevCount => prevCount + state.count);
