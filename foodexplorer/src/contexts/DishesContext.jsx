@@ -6,7 +6,7 @@ export const DishesContext = createContext();
 export function DishesProvider ({children}) {
   const [meals, setMeals] = useState({})
   const [mainDishes, setMainDishes] = useState(null)
-  const [juices, setJuices] = useState(null)
+  const [drinks, setDrinks] = useState(null)
 
   useEffect (() => {
     fetchData()
@@ -17,12 +17,12 @@ export function DishesProvider ({children}) {
     .then(response => {
       setMeals(response.data.meals)
       setMainDishes(response.data.main_dishes)
-      setJuices(response.data.juices)
+      setDrinks(response.data.drinks)
     })
     .catch(error => console.error("Erro ao buscar pratos:", error))
   }
 
-  const contextValue = { meals, mainDishes, juices }
+  const contextValue = { meals, mainDishes, drinks }
 
   return (
     <DishesContext.Provider value={contextValue} >

@@ -9,7 +9,9 @@ export const Container = styled.div`
   justify-content: space-around;
   align-items: center;
   padding: 2rem;
-  margin-top: ;
-  margin: 48px auto 0 auto;
+  margin: 0;
 
+  position: relative;
+  bottom: 0;
+  left: 0;
 `;

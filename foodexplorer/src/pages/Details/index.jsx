@@ -1,3 +1,4 @@
+import { DescriptionCard } from "../../components/DescriptionCard";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { Poster } from "../../components/Poster";
@@ -10,6 +11,7 @@ export function Details() {
     <DishesProvider>
       <CounterProvider>
         <Header />
+        <DescriptionCard />
         <Footer />
       </CounterProvider>
     </DishesProvider>
