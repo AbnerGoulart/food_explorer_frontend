@@ -10,7 +10,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
 
-  margin: 680px auto 62px;
+  margin: 68px auto 62px;
 
   .description {
     font-family: 'Poppins', sans-serif;

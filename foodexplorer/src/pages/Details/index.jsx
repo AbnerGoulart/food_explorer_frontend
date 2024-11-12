@@ -1,14 +1,17 @@
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
+import { Poster } from "../../components/Poster";
 
 import { CounterProvider } from "../../contexts/CounterContext";
+import { DishesProvider } from "../../contexts/DishesContext";
 
 export function Details() {
   return (
-    <CounterProvider>
-      <Header />
-      
-      <Footer />
-    </CounterProvider>
+    <DishesProvider>
+      <CounterProvider>
+        <Header />
+        <Footer />
+      </CounterProvider>
+    </DishesProvider>
   );
 }

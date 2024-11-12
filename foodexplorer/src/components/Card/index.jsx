@@ -18,11 +18,13 @@ function reducer(state, action) {
   }
 }
 
-export function Card() {
+export function Card({ title, img, price }) {
   const [state, dispatch] = useReducer(reducer, initializeState);
   const { setCount } = useContext(CounterContext);
 
   const dishes = useContext(DishesContext);
+
+  if (!dishes) return <p>Carregando...</p>
 
   const handleAddToCart = () => {
     setCount(prevCount => prevCount + state.count);
@@ -30,9 +32,9 @@ export function Card() {
 
   return (
     <Container>
-      <img src="../../../public/Mask group-5.png" alt="prato" />
-      <h3>Prugna Pie</h3>
-      <span className="price">R$79,97</span>
+      <img src={img} alt={title} />
+      <h3>{title}</h3>
+      <span className="price">R${price}</span>
       <div className="amount">
         <button onClick={() => dispatch({ type: 'decrement' })}>
           <PiMinus />

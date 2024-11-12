@@ -1,37 +1,38 @@
 import { Poster } from "../../components/Poster";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
-import { MenuCarousel } from "../../components/MenuCarousel";
+import { FoodMenu } from "../../components/FoodMenu";
 
 import { CounterProvider } from "../../contexts/CounterContext";
-import { DishesProvider } from "../../contexts/DishesContext";
+import { DishesContext, DishesProvider } from "../../contexts/DishesContext";
+import { useContext } from "react";
 
-import { useEffect, useState } from "react";
-import { api } from "../../api";
+// import { useEffect, useState } from "react";
+// import { api } from "../../api";
 
 export function Home() {
-  const [dishes, setDishes] = useState(null);
+  // const [dishes, setDishes] = useState([]);
 
-  useEffect(() => {
-    fetchDishes();
-  }, []);
+  // useEffect(() => {
+  //   fetchDishes();
+  // }, []);
 
-  const fetchDishes = () => {
-    api.get("/dishes").then((response) => {
-      setDishes(response.data);
-      console.log(dishes);
-    });
-  };
+  // const fetchDishes = () => {
+  //   api.get("/dishes").then((response) => {
+  //     setDishes(response.data);
+  //     console.log(dishes);
+  //   });
+  // };
+  // const { alisson } = useContext(DishesContext)
 
   return (
     <DishesProvider>
       <CounterProvider>
         <Header />
         <Poster />
-        <MenuCarousel title="Pratos do Dia" />
-        <MenuCarousel title="Promoção" />
+        <FoodMenu />
         <Footer />
-      </CounterProvider>
+      </CounterProvider>    
     </DishesProvider>
   );
 }

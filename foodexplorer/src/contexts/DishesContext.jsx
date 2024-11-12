@@ -4,16 +4,28 @@ import { api } from '../api'
 export const DishesContext = createContext();
 
 export function DishesProvider ({children}) {
-  const [dishes, setDishes] = useState(null)
+  const [meals, setMeals] = useState({})
+  const [mainDishes, setMainDishes] = useState(null)
+  const [juices, setJuices] = useState(null)
 
   useEffect (() => {
-    api.get('/dishes')
-    .then(response => setDishes(response.data))
-    .catch(error => console.error("Erro ao buscar pratos:", error))
+    fetchData()
   }, [])
 
+  const fetchData = () => {
+    api.get('/dishes')
+    .then(response => {
+      setMeals(response.data.meals)
+      setMainDishes(response.data.main_dishes)
+      setJuices(response.data.juices)
+    })
+    .catch(error => console.error("Erro ao buscar pratos:", error))
+  }
+
+  const contextValue = { meals, mainDishes, juices }
+
   return (
-    <DishesContext.Provider value={{dishes}} >
+    <DishesContext.Provider value={contextValue} >
       {children}
     </DishesContext.Provider>
   )

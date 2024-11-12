@@ -8,7 +8,24 @@ register();
 import "swiper/css";
 import "swiper/css/pagination";
 
-export function MenuCarousel({title}) {  
+export function MenuCarousel({title, items}) {  
+  const renderCards = () => {
+    const cards = []
+    items && items.map(item => {
+      cards.push(
+        <SwiperSlide key={item.id}>
+          <Card 
+            title={item.title}
+            img={item.photo}
+            price={item.price} 
+          />
+        </SwiperSlide>
+      )
+    })
+
+    return cards
+  }
+
   return (
     <Container>
       <Heading title={title} />
@@ -17,15 +34,7 @@ export function MenuCarousel({title}) {
         slidesPerView={2}
         pagination={{ clickable: true }}
       >
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>
+        {renderCards()}
       </Swiper>
     </Container>
   );
