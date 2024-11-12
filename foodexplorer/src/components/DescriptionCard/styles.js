@@ -65,4 +65,29 @@ export const Container = styled.div`
 
   }
 
+  .checkout {
+    display: flex;
+    position: absolute;
+    top: 630px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    max-width: 100%;
+
+    .counter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .counter button {
+      background: transparent;
+      width: 50px;
+      height: 50px;
+      font-size: 18px;
+      margin: 8px;
+    }
+  }
+
 `;

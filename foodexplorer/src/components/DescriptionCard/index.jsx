@@ -1,8 +1,10 @@
-import { Container } from './styles';
-import { ButtonText } from '../ButtonText'
-import { Tag } from '../Tag'
+import { Container } from "./styles";
+import { ButtonText } from "../ButtonText";
+import { Tag } from "../Tag";
+import { PiMinus, PiPlus } from "react-icons/pi";
+import { Button } from "../Button";
 
-export function DescriptionCard(){
+export function DescriptionCard() {
   return (
     <Container>
       <div className="header">
@@ -19,6 +21,18 @@ export function DescriptionCard(){
         <Tag title="grelhado" />
         <Tag title="hot" />
       </div>
+      <div className="checkout">
+        <div className="counter">
+          <button>
+            <PiMinus />
+          </button>
+          <span>01</span>
+          <button>
+            <PiPlus />
+          </button>
+        </div>
+        <Button title="Fazer pedido" />
+      </div>
     </Container>
-  )
+  );
 }
