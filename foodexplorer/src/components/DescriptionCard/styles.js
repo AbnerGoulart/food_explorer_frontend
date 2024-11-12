@@ -41,6 +41,19 @@ export const Container = styled.div`
     margin: 24px auto;
   }
 
+  .tags {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 516px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: flex-start;
+    padding: 8px;
+
+  }
+
   .header {
     margin: 0;
     font-size: 24px;
