@@ -8,37 +8,42 @@ export const Container = styled.div`
   align-items: center;
   gap: 1rem;
   width: 80vw;
-  max-width: 19.75rem;
-  margin: 9rem auto 3rem;
+  max-width: 20rem;
+  margin: 1.5rem auto 3rem;
   font-family: 'Poppins';
   position: relative;
 
+
+  .header {
+    width: 100%;
+  }
+
   img {
     width: 16.5rem;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin: 1rem auto;
   }
 
   h1 {
     font-size: 1.6875rem;
     font-weight: 500;
-    margin: 1.5rem 0 1rem;
+    margin: 0 auto;
     text-align: center;
   }
 
   p {
     font-size: 1rem;
     text-align: center;
-    margin: 0 0.9375rem 1.5rem;
+    margin: 1.2rem auto;
   }
 
   .tags {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 1rem;
     justify-content: center;
     padding: 0.5rem;
+    margin-bottom: 2.2rem;
   }
 
   .checkout {
