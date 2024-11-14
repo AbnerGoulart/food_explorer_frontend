@@ -1,4 +1,4 @@
-import { Container } from "./styles";
+import { Container, ReceiptIcon } from "./styles";
 import { ButtonText } from "../ButtonText";
 import { Tag } from "../Tag";
 import { PiMinus, PiPlus } from "react-icons/pi";
@@ -31,7 +31,11 @@ export function DescriptionCard() {
             <PiPlus />
           </button>
         </div>
-        <Button title="Fazer pedido" />
+        <Button 
+          icon={<ReceiptIcon />}
+          price="R$ 29.70"
+          title=" Pedir"
+        />
       </div>
     </Container>
   );

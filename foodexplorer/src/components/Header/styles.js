@@ -6,9 +6,9 @@ export const Container = styled.div`
   width: 100%;
   height: 114px;
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
-  margin: 0 auto 2.75rem;
+  margin: 0 auto;
 
-  position: absolute;
+  position: relative;
   top: 0;
   right: 0;
   left: 0;

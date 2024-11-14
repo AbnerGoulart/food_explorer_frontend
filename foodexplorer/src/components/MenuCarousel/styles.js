@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 437px;
-  height: 340px;
-  margin: 24px 0 24px 48px;
+  width: 90vw;
+  height: 24.75rem;
+  margin: 1.5rem 0 1.5rem 3rem;
   background: transparent;
 `;

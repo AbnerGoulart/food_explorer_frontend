@@ -5,5 +5,4 @@ export const Container = styled.button`
   border: none;
   color: ${({theme}) => theme.COLORS.LIGHT_100};
   display: flex;
-  margin: 32px auto;
 `;

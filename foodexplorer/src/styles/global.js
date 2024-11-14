@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { DEVICE_BREAKPOINTS } from './deviceBreakpoints'
+import { DEVICE_BREAKPOINTS } from './deviceBreakpoints';
 
 export default createGlobalStyle`
   * {
@@ -9,47 +9,49 @@ export default createGlobalStyle`
   }
 
   :root {
-    font-size: 16px;
+    font-size: 1rem;
     width: 100%;
-    height: 100vh;
   }
 
   @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
     :root {
-      font-size: 14px;
-    }
-      
-    body {
-      width: 100%;
-      height: 100vh;
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      margin: auto;
+      font-size: 0.875rem;
     }
 
     input {
-      background-color: ${({theme}) => theme.COLORS.DARK_900};
-      border-radius: 5px;
-      height: 48px;
-      width: 316px;
-      padding: 12px 14px;
+      background-color: ${({ theme }) => theme.COLORS.DARK_900};
+      border-radius: 0.3125rem;
+      height: 3rem;
+      width: 19.75rem;
+      padding: 0.75rem 0.875rem;
       border: none;
       outline: none;
-      margin-bottom: 32px;
+      margin-bottom: 2rem;
     }
   }
 
   body {
     font-family: 'Roboto', sans-serif;
-    outline: none;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    background-color: ${({theme}) => theme.COLORS.DARK_400};
-    color: ${({theme}) => theme.COLORS.LIGHT_300};
+    background-color: ${({ theme }) => theme.COLORS.DARK_400};
+    color: ${({ theme }) => theme.COLORS.LIGHT_300};
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   img, picture, video, canvas, svg {
@@ -57,14 +59,34 @@ export default createGlobalStyle`
     max-width: 100%;
   }
 
+  img {
+    display: block;
+    max-width: 100%;
+
+    &:hover {
+      cursor: pointer;
+      filter: contrast(1.1);
+      animation: rotate 90s linear infinite;
+    }
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
   input, button, textarea, select, a {
     font-family: inherit;
-    color: ${({theme}) => theme.COLORS.LIGHT_300};
+    color: ${({ theme }) => theme.COLORS.LIGHT_300};
   }
 
   p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
-    color: ${({theme}) => theme.COLORS.LIGHT_300};
+    color: ${({ theme }) => theme.COLORS.LIGHT_300};
   }
 
   #root, #__next {
@@ -76,7 +98,7 @@ export default createGlobalStyle`
   }
 
   h1 {
-    font-size: 37px;
+    font-size: 2.4rem;
   }
 
   button, a {
@@ -89,14 +111,12 @@ export default createGlobalStyle`
   }
 
   button {
-    border-radius: 5px;
+    border-radius: 0.3125rem;
     border: none;
     outline: none;
-
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
-
 `;

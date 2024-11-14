@@ -8,12 +8,13 @@ import { SignIn } from "./pages/SignIn";
 import { SignUp } from "./pages/SignUp/index.jsx";
 import { Home } from "./pages/Home/index.jsx";
 import { Details } from "./pages/Details/index.jsx";
+import { Menu } from "./pages/Menu/index.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Details />
+      <Home />
     </ThemeProvider>
   </StrictMode>
 );

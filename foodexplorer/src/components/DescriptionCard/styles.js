@@ -1,93 +1,73 @@
 import styled from "styled-components";
+import { PiReceiptLight } from "react-icons/pi";
 
 export const Container = styled.div`
   display: flex;
-  height: 677px;
-  width: 316px;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  gap: 16px;
-  flex-shrink: 0;
-
-  margin: 427px auto 47px;
-
-  position: relative;
+  gap: 1rem;
+  width: 80vw;
+  max-width: 19.75rem;
+  margin: 9rem auto 3rem;
   font-family: 'Poppins';
+  position: relative;
 
   img {
-    width: 264px;
-    margin: 16px;
-    position: absolute;
-    top: 83px;
+    width: 16.5rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
   }
 
   h1 {
-    position: absolute;
-    top: 380px;
-    font-size: 27px;
+    font-size: 1.6875rem;
     font-weight: 500;
-    margin-bottom: 24px;
+    margin: 1.5rem 0 1rem;
+    text-align: center;
   }
 
   p {
-    font-size: 16px;
-    position: absolute;
-    top: 420px;
-    left: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 24px auto;
+    font-size: 1rem;
+    text-align: center;
+    margin: 0 0.9375rem 1.5rem;
   }
 
   .tags {
-    position: absolute;
     width: 100%;
-    height: auto;
-    top: 516px;
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
-    justify-content: flex-start;
-    padding: 8px;
-
-  }
-
-  .header {
-    margin: 0;
-    font-size: 24px;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0;
-
+    gap: 0.5rem;
+    justify-content: center;
+    padding: 0.5rem;
   }
 
   .checkout {
+    width: 100%;
     display: flex;
-    position: absolute;
-    top: 630px;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-
-    max-width: 100%;
+    gap: 0.5rem;
+    padding: 0.5rem;
 
     .counter {
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 0.5rem;
     }
 
     .counter button {
       background: transparent;
-      width: 50px;
-      height: 50px;
-      font-size: 18px;
-      margin: 8px;
+      width: 1.75rem;
+      height: 1.75rem;
+      font-size: 1.125rem;
+      margin: 0 0.25rem;
     }
   }
+`;
 
+export const ReceiptIcon = styled(PiReceiptLight)`
+  font-size: 1.25rem;
+  color: ${({ theme }) => theme.COLORS.LIGHT_100};
+  cursor: pointer;
 `;
