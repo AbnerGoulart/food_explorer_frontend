@@ -3,19 +3,19 @@ import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { FoodMenu } from "../../components/FoodMenu";
 
-import { CounterProvider } from "../../contexts/CartContext";
+import { CartProvider } from "../../contexts/CartContext";
 import { DishesProvider } from "../../contexts/DishesContext";
 
 export function Home() {
 
   return (
     <DishesProvider>
-      <CounterProvider>
+      <CartProvider>
         <Header />
         <Poster />
         <FoodMenu />
         <Footer />
-      </CounterProvider>    
+      </CartProvider>    
     </DishesProvider>
   );
 }

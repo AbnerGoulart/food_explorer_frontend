@@ -1,6 +1,6 @@
 import { Container } from "./styles";
 
-import { CounterProvider } from "../../contexts/CartContext";
+import { CartProvider } from "../../contexts/CartContext";
 import { DishesProvider } from "../../contexts/DishesContext";
 
 import { Header } from "../../components/Header";
@@ -11,14 +11,14 @@ export function Menu() {
   return (
     <Container>
       <DishesProvider>
-        <CounterProvider>
+        <CartProvider>
           <Header />
           <div className="content">
             <input type="text" placeholder="Busque por pratos ou ingredientes" />
             <ButtonText title="Sair" />
           </div>
           <Footer />
-        </CounterProvider>
+        </CartProvider>
       </DishesProvider>
     </Container>
   );

@@ -3,21 +3,16 @@ import { createRoot } from "react-dom/client";
 import GlobalStyles from "./styles/global.js";
 import { ThemeProvider } from "styled-components";
 import theme from "./styles/theme.js";
-import { CounterProvider } from "./contexts/CartContext.jsx";
-
-import { SignIn } from "./pages/SignIn";
-import { SignUp } from "./pages/SignUp/index.jsx";
-import { Home } from "./pages/Home/index.jsx";
-import { Details } from "./pages/Details/index.jsx";
-import { Menu } from "./pages/Menu/index.jsx";
+import { CartProvider } from "./contexts/CartContext.jsx";
+import { Routes } from "./routes";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <CounterProvider>
-        <Details />
-      </CounterProvider>
+      <CartProvider>
+        <Routes />
+      </CartProvider>
     </ThemeProvider>
   </StrictMode>
 );
