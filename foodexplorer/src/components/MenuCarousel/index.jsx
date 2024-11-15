@@ -3,10 +3,10 @@ import { Container } from "./styles";
 import { Heading } from "../Heading";
 import { register } from "swiper/element";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-register();
 import "swiper/css";
 import "swiper/css/pagination";
+
+register();
 
 export function MenuCarousel({title, items}) {  
   const renderCards = () => {

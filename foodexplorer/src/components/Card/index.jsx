@@ -1,8 +1,8 @@
 import { Container } from "./styles";
 import { Button } from "../Button";
 import { PiPlus, PiMinus } from "react-icons/pi";
-import { useReducer, useContext } from "react";
-import { CounterContext } from "../../contexts/CounterContext";
+import { useReducer, useContext, useEffect, useState } from "react";
+import { CartContext } from "../../contexts/CartContext";
 import { DishesContext } from "../../contexts/DishesContext";
 
 const initializeState = { count: 1 };
@@ -20,14 +20,21 @@ function reducer(state, action) {
 
 export function Card({ title, img, price }) {
   const [state, dispatch] = useReducer(reducer, initializeState);
-  const { setCount } = useContext(CounterContext);
-
+  const { items, setItems } = useContext(CartContext);
   const dishes = useContext(DishesContext);
 
   if (!dishes) return <p>Carregando...</p>
 
-  const handleAddToCart = () => {
-    setCount(prevCount => prevCount + state.count);
+  const handleAddToCart = (title, price) => {
+    const addedItems = []
+    for (let i = 0; i < state.count; i++) {
+      addedItems.push({ item: title, price: price })
+    }
+
+    setItems([
+      ...items,
+      ...addedItems
+    ]);
   };
 
   return (
@@ -44,7 +51,7 @@ export function Card({ title, img, price }) {
           <PiPlus />
         </button>
       </div>
-      <Button title="incluir" onClick={handleAddToCart} />
+      <Button title="incluir" onClick={() => handleAddToCart(title, price)} />
     </Container>
   );
 }

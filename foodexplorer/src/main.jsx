@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import GlobalStyles from "./styles/global.js";
 import { ThemeProvider } from "styled-components";
 import theme from "./styles/theme.js";
+import { CounterProvider } from "./contexts/CartContext.jsx";
 
 import { SignIn } from "./pages/SignIn";
 import { SignUp } from "./pages/SignUp/index.jsx";
@@ -14,7 +15,9 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Details />
+      <CounterProvider>
+        <Details />
+      </CounterProvider>
     </ThemeProvider>
   </StrictMode>
 );

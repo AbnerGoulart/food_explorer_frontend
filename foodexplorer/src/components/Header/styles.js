@@ -18,6 +18,10 @@ export const Container = styled.div`
   align-items: center;
   gap: 2rem;
 
+  button {
+    background: transparent;
+  }
+
   .receiptContainer {
     position: relative;
     display: flex;

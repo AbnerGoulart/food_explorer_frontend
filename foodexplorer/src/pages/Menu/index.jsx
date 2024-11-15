@@ -1,6 +1,6 @@
 import { Container } from "./styles";
 
-import { CounterProvider } from "../../contexts/CounterContext";
+import { CounterProvider } from "../../contexts/CartContext";
 import { DishesProvider } from "../../contexts/DishesContext";
 
 import { Header } from "../../components/Header";

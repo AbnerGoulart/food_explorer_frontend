@@ -1,23 +1,21 @@
 import { Container, MenuIcon, ReceiptIcon, Counter } from "./styles";
 import { Logo } from "../Logo";
 import { useContext } from "react";
-import { CounterContext } from "../../contexts/CounterContext";
-import { DishesContext } from "../../contexts/DishesContext";
+import { CartContext } from "../../contexts/CartContext";
 
 export function Header() {
-  const { count } = useContext(CounterContext);
-  const { meals } = useContext(DishesContext)
+  const { count } = useContext(CartContext);
 
   return (
     <Container>
       <MenuIcon />
       <Logo size="1.5rem" />
-      <div className="receiptContainer">
+      <button className="receiptContainer">
         <ReceiptIcon />
         <Counter>
           <span>{count}</span>
         </Counter>
-      </div>
+      </button>
     </Container>
   );
 }

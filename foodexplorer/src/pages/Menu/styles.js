@@ -15,6 +15,7 @@ export const Container = styled.div`
     flex-direction: column;
     margin: 36px auto;
     justify-content: flex-start;
+    border-bottom: 1px solid ${({theme}) => theme.COLORS.LIGHT_600};
   }
 
   input {
