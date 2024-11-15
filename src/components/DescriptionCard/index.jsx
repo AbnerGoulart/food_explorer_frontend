@@ -3,13 +3,14 @@ import { ButtonText } from "../ButtonText";
 import { Tag } from "../Tag";
 import { PiMinus, PiPlus } from "react-icons/pi";
 import { Button } from "../Button";
+import { Link } from "react-router-dom";
 
 export function DescriptionCard() {
   return (
     <Container>
-      <div className="header">
+      <Link to="/" className="header">
         <ButtonText title="< voltar" />
-      </div>
+      </Link>
       <img src="/camarao.png" alt="" />
       <h1>Camarão Carão</h1>
       <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</p>
