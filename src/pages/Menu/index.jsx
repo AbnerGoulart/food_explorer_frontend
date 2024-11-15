@@ -1,4 +1,5 @@
 import { Container } from "./styles";
+import { Link } from "react-router-dom";
 
 import { CartProvider } from "../../contexts/CartContext";
 import { DishesProvider } from "../../contexts/DishesContext";
@@ -15,7 +16,9 @@ export function Menu() {
           <Header />
           <div className="content">
             <input type="text" placeholder="Busque por pratos ou ingredientes" />
-            <ButtonText title="Sair" />
+            <Link to="/">
+              <ButtonText title="Sair" />
+            </Link>
           </div>
           <Footer />
         </CartProvider>

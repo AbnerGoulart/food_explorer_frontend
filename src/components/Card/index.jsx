@@ -4,6 +4,7 @@ import { PiPlus, PiMinus } from "react-icons/pi";
 import { useReducer, useContext, useEffect, useState } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import { DishesContext } from "../../contexts/DishesContext";
+import { Link } from "react-router-dom";
 
 const initializeState = { count: 1 };
 
@@ -39,7 +40,9 @@ export function Card({ title, img, price }) {
 
   return (
     <Container>
-      <img src={img} alt={title} />
+      <Link to="details" >
+        <img src={img} alt={title} />
+      </Link>
       <h3>{title}</h3>
       <span className="price">R${price}</span>
       <div className="amount">
