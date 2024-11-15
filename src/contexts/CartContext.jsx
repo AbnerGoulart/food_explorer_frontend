@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 
 export const CartContext = createContext();
 
-export function CounterProvider({ children }) {
+export function CartProvider({ children }) {
   const [count, setCount] = useState(0);
   const [items, setItems] = useState([]);
 
