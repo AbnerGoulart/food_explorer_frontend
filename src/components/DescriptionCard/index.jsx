@@ -4,23 +4,36 @@ import { Tag } from "../Tag";
 import { PiMinus, PiPlus } from "react-icons/pi";
 import { Button } from "../Button";
 import { Link } from "react-router-dom";
+import { DetailContext } from "../../contexts/DetailContext";
+import { useContext } from "react";
 
 export function DescriptionCard() {
+  const dish = useContext(DetailContext)
+
+  if (!dish) return <p>Carregando...</p>
+
+  const renderTags = () => {
+    const tags = []
+    dish.tags.map((tag) => {
+      tags.push(
+        <Tag title={tag} />
+      )
+    })
+
+    return tags
+
+  }
+
   return (
     <Container>
       <Link to="/" className="header">
         <ButtonText title="< voltar" />
       </Link>
-      <img src="/camarao.png" alt="" />
-      <h1>Camarão Carão</h1>
-      <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</p>
+      <img src={dish.photo} alt="" />
+      <h1>{dish.title}</h1>
+      <p>{dish.description}</p>
       <div className="tags">
-        <Tag title="camarão" />
-        <Tag title="massa" />
-        <Tag title="gergelim" />
-        <Tag title="alho" />
-        <Tag title="grelhado" />
-        <Tag title="hot" />
+        {renderTags()}
       </div>
       <div className="checkout">
         <div className="counter">
@@ -34,7 +47,7 @@ export function DescriptionCard() {
         </div>
         <Button 
           icon={<ReceiptIcon />}
-          price="R$ 29.70"
+          price={dish.price}
           title=" Pedir"
         />
       </div>

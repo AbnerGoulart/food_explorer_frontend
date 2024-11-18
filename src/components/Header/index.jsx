@@ -13,12 +13,12 @@ export function Header() {
         <MenuIcon />
       </Link>
       <Logo size="1.5rem" />
-      <Link to="/details" className="receiptContainer">
+      <div className="receiptContainer">
         <ReceiptIcon />
         <Counter>
           <span>{count}</span>
         </Counter>
-      </Link>
+      </div>
     </Container>
   );
 }
