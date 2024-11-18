@@ -1,13 +1,15 @@
 import React, {createContext, useState, useEffect} from 'react'
 import { api } from '../api'
+import { useParams } from 'react-router-dom'
 
 export const DetailContext = createContext()
 
 export function DetailProvider({ children }) {
+  const { id } = useParams()
   const [dish, setDish] = useState({})
 
   const fetchData = () => {
-    api.get('/dishes/details/1')
+    api.get(`/dishes/details/${id}`)
     .then(response => {
       setDish(response.data)
     })
