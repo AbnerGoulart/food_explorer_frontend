@@ -14,14 +14,13 @@ export function DescriptionCard() {
 
   const renderTags = () => {
     const tags = []
-    dish.tags.map((tag) => {
+    dish.tags && dish.tags.map(tag => {
       tags.push(
-        <Tag title={tag} />
+        <Tag title={tag.name} key={tag.id}/>
       )
     })
 
     return tags
-
   }
 
   return (
