@@ -18,6 +18,7 @@ export function MenuCarousel({title, items}) {
             title={item.title}
             img={item.photo}
             price={item.price} 
+            id={item.id}
           />
         </SwiperSlide>
       )
