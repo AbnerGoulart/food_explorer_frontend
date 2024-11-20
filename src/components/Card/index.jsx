@@ -27,7 +27,7 @@ const formatPrice = (price) => {
   }).format(price)
 }
 
-export function Card({ title, img, price }) {
+export function Card({ title, img, price, id }) {
   const [state, dispatch] = useReducer(reducer, initializeState);
   const { items, setItems } = useContext(CartContext);
   const dishes = useContext(DishesContext);
@@ -48,7 +48,7 @@ export function Card({ title, img, price }) {
 
   return (
     <Container>
-      <Link to="details" >
+      <Link to={`details/${id}`} >
         <img src={img} alt={title} />
       </Link>
       <h3>{title}</h3>
