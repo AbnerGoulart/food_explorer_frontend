@@ -1,7 +1,7 @@
 import { Container } from "./styles";
 import { Button } from "../Button";
 import { PiPlus, PiMinus } from "react-icons/pi";
-import { useReducer, useContext, useEffect, useState } from "react";
+import { useReducer, useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import { DishesContext } from "../../contexts/DishesContext";
 import { Link } from "react-router-dom";
@@ -17,6 +17,14 @@ function reducer(state, action) {
     default:
       return state;
   }
+}
+
+const formatPrice = (price) => {
+  return new Intl.NumberFormat('pt-BR',{
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2,
+  }).format(price)
 }
 
 export function Card({ title, img, price }) {
@@ -44,7 +52,7 @@ export function Card({ title, img, price }) {
         <img src={img} alt={title} />
       </Link>
       <h3>{title}</h3>
-      <span className="price">R${price}</span>
+      <span className="price">{formatPrice(price)}</span>
       <div className="amount">
         <button onClick={() => dispatch({ type: 'decrement' })}>
           <PiMinus />
