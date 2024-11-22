@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Button } from '../../components/Button'
 import { ButtonText } from '../../components/ButtonText'
 import { Footer } from '../../components/Footer'
@@ -9,7 +10,9 @@ export function NewDish(){
     <Container>
       <Header />
       <div className="wrapper">
-        <ButtonText title="< voltar" />
+        <Link to="/">
+          <ButtonText title="< voltar" />
+        </Link>
         <h1>Novo prato</h1>
         <div className="labelInput">
           <p>Imagem do prato</p>
@@ -33,10 +36,10 @@ export function NewDish(){
         </div>
         <div className="labelInput">
           <p>Descrição</p>
-          <textarea>Fale brevemente sobre o prato, seus ingredientes e composição </textarea>
+          <textarea placeholder='Fale brevemente sobre o prato, seus ingredientes e composição '></textarea>
         </div>
-        <Button title="Salvar alterações" />
       </div>
+        <Button title="Salvar alterações" />
       <Footer />
     </Container>
   )

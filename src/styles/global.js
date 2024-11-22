@@ -83,7 +83,11 @@ export default createGlobalStyle`
   input, button, textarea, select, a {
     font-family: "Poppins";
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
-    background-color: ${({ theme }) => theme.COLORS.DARK_900}
+  }
+
+  textarea {
+    background-color: ${({ theme }) => theme.COLORS.DARK_900};
+    height: 7rem;
   }
 
   p, h1, h2, h3, h4, h5, h6 {
