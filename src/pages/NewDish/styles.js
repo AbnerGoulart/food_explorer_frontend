@@ -5,4 +5,14 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100vh;
+  gap: 2rem;
+  
+  .wrapper {
+    width: 364px;
+    
+    input, textarea {
+      width: 100%;
+    }
+  }
 `

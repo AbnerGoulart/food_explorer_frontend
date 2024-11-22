@@ -18,7 +18,7 @@ export default createGlobalStyle`
       font-size: 0.875rem;
     }
 
-    input {
+    input, textarea {
       background-color: ${({ theme }) => theme.COLORS.DARK_900};
       border-radius: 0.3125rem;
       height: 3rem;
@@ -81,8 +81,9 @@ export default createGlobalStyle`
   }
 
   input, button, textarea, select, a {
-    font-family: inherit;
+    font-family: "Poppins";
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
+    background-color: ${({ theme }) => theme.COLORS.DARK_900}
   }
 
   p, h1, h2, h3, h4, h5, h6 {
