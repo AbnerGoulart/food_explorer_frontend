@@ -1,20 +1,26 @@
+import { Link } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { ButtonText } from "../../components/ButtonText";
 import { Logo } from "../../components/Logo";
+import { Container } from "./styles";
 
 
 export function SignUp() {
   return (
-    <div className="app">
+    <Container className="app">
       <Logo />
-      <p>Seu nome</p>
-      <input type="text" placeholder="Exemplo: Maria Alice" />
-      <p>Email</p>
-      <input type="email" placeholder="exemplo@email.com" />
-      <p>Senha</p>
-      <input type="password" placeholder="No mínimo 6 caracteres" />
+      <div className="wrapper">
+        <p>Seu nome</p>
+        <input type="text" placeholder="Exemplo: Maria Alice" />
+        <p>Email</p>
+        <input type="email" placeholder="exemplo@email.com" />
+        <p>Senha</p>
+        <input type="password" placeholder="No mínimo 6 caracteres" />
+      </div>
       <Button title="Criar conta" />
-      <ButtonText title="Já tenho uma conta" />
-    </div>
+      <Link to="/">
+        <ButtonText title="Já tenho uma conta" />
+      </Link>
+    </Container>
   )
 }

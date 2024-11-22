@@ -6,18 +6,21 @@ export const Container = styled.button`
   height: 3.5rem;
   background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
-  font-family: inherit;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
 
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+  margin: 0;
 
   .content {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    margin: 1rem;
   }
 
   .price {
