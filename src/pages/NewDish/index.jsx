@@ -38,8 +38,8 @@ export function NewDish(){
           <p>Descrição</p>
           <textarea placeholder='Fale brevemente sobre o prato, seus ingredientes e composição '></textarea>
         </div>
-      </div>
         <Button title="Salvar alterações" />
+      </div>
       <Footer />
     </Container>
   )

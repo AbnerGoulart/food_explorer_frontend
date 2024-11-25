@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.button`
-  width: 80vw;
-  max-width: 19.75rem;
+  width: 100%;
   height: 3.5rem;
   background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
   color: ${({ theme }) => theme.COLORS.LIGHT_100};

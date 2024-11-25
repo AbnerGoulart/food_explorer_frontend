@@ -16,8 +16,8 @@ export function SignUp() {
         <input type="email" placeholder="exemplo@email.com" />
         <p>Senha</p>
         <input type="password" placeholder="No mínimo 6 caracteres" />
+        <Button title="Criar conta" />
       </div>
-      <Button title="Criar conta" />
       <Link to="/">
         <ButtonText title="Já tenho uma conta" />
       </Link>
