@@ -8,28 +8,6 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
-  :root {
-    font-size: 1rem;
-    width: 100%;
-  }
-
-  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
-    :root {
-      font-size: 0.875rem;
-    }
-
-    input, textarea {
-      background-color: ${({ theme }) => theme.COLORS.DARK_900};
-      border-radius: 0.3125rem;
-      height: 3rem;
-      width: 19.75rem;
-      padding: 0.75rem 0.875rem;
-      border: none;
-      outline: none;
-      margin-bottom: 2rem;
-    }
-  }
-
   body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.5;
@@ -60,34 +38,9 @@ export default createGlobalStyle`
     max-width: 100%;
   }
 
-  img {
-    display: block;
-    max-width: 100%;
-
-    &:hover {
-      cursor: pointer;
-      filter: contrast(1.1);
-      animation: rotate 90s linear infinite;
-    }
-  }
-
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
   input, button, textarea, select, a {
     font-family: "Poppins";
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
-  }
-
-  textarea {
-    background-color: ${({ theme }) => theme.COLORS.DARK_900};
-    height: 7rem;
   }
 
   p, h1, h2, h3, h4, h5, h6 {
@@ -95,16 +48,8 @@ export default createGlobalStyle`
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
   }
 
-  #root, #__next {
-    isolation: isolate;
-  }
-
   a {
     text-decoration: none;
-  }
-
-  h1 {
-    font-size: 2.4rem;
   }
 
   button, a {
@@ -124,5 +69,44 @@ export default createGlobalStyle`
     justify-content: center;
     align-items: center;
     gap: 0.4rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+
+  :root {
+    font-size: 1rem;
+  }
+
+  input, textarea {
+    background-color: ${({ theme }) => theme.COLORS.DARK_900};
+    border-radius: 0.3125rem;
+    height: 3rem;
+    width: 19.75rem;
+    padding: 0.75rem 0.875rem;
+    border: none;
+    outline: none;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
+    :root {
+      font-size: 1.125rem;
+    }
+
+    body {
+      background-color: ${({ theme }) => theme.COLORS.DARK_100};
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    input, textarea {
+      width: 30rem;
+      height: 4rem;
+    }
   }
 `;
