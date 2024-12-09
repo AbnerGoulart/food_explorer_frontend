@@ -5,6 +5,7 @@ import { register } from "swiper/element";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 register();
 
@@ -34,6 +35,14 @@ export function MenuCarousel({title, items}) {
         spaceBetween={50}
         slidesPerView={2}
         pagination={{ clickable: true }}
+        breakpoints={{
+          768: {
+            slidesPerView: 3,
+          },
+          1024: {
+            slidesPerView: 4,
+          }
+        }}
       >
         {renderCards()}
       </Swiper>

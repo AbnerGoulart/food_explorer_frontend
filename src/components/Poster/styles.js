@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.div`
   width: 90vw;
@@ -10,6 +11,11 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   margin: 24px auto;
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
+    max-width: 70rem;
+    height: 12.25rem;
+  }
 
   .description {
     font-family: 'Poppins', sans-serif;
@@ -23,11 +29,19 @@ export const Container = styled.div`
   h1 {
     font-size: 1.125rem;
     font-weight: 500;
+
+    @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
+     font-size: 2rem;
+    }
   }
 
   h3 {
     font-size: 0.75rem;
     font-weight: 400;
+
+    @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
+     font-size: 1rem;
+    }
   }
 
   img {
@@ -37,5 +51,9 @@ export const Container = styled.div`
     position: absolute;
     bottom: 0;
     left: -2rem;
+
+    @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
+     max-width: 18rem;
+    }
   }
 `;
