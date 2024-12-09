@@ -8,47 +8,44 @@ import { DetailContext } from "../../contexts/DetailContext";
 import { useContext } from "react";
 
 export function DescriptionCard() {
-  const dish = useContext(DetailContext)
+  const dish = useContext(DetailContext);
 
-  if (!dish) return <p>Carregando...</p>
+  if (!dish) return <p>Carregando...</p>;
 
   const renderTags = () => {
-    const tags = []
-    dish.tags && dish.tags.map(tag => {
-      tags.push(
-        <Tag title={tag.name} key={tag.id}/>
-      )
-    })
+    const tags = [];
+    dish.tags &&
+      dish.tags.map((tag) => {
+        tags.push(<Tag title={tag.name} key={tag.id} />);
+      });
 
-    return tags
-  }
+    return tags;
+  };
 
   return (
     <Container>
       <Link to="/" className="header">
         <ButtonText title="< voltar" />
       </Link>
-      <img src={dish.photo} alt="" />
-      <h1>{dish.title}</h1>
-      <p>{dish.description}</p>
-      <div className="tags">
-        {renderTags()}
-      </div>
-      <div className="checkout">
-        <div className="counter">
-          <button>
-            <PiMinus />
-          </button>
-          <span>01</span>
-          <button>
-            <PiPlus />
-          </button>
+      <div className="wrapper">
+        <img src={dish.photo} alt="" />
+        <div className="description">
+          <h1>{dish.title}</h1>
+          <p>{dish.description}</p>
+          <div className="tags">{renderTags()}</div>
+          <div className="checkout">
+            <div className="counter">
+              <button>
+                <PiMinus />
+              </button>
+              <span>01</span>
+              <button>
+                <PiPlus />
+              </button>
+            </div>
+            <Button icon={<ReceiptIcon />} price={dish.price} title=" Pedir" />
+          </div>
         </div>
-        <Button 
-          icon={<ReceiptIcon />}
-          price={dish.price}
-          title=" Pedir"
-        />
       </div>
     </Container>
   );
