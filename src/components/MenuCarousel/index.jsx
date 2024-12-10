@@ -1,19 +1,31 @@
-import { Pagination } from "swiper";
+import { Card } from "../Card";
+import { Container } from "./styles";
+import { Heading } from "../Heading";
+import { register } from "swiper/element";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 register();
 
-export function MenuCarousel({ title, items }) {  
+export function MenuCarousel({title, items}) {  
   const renderCards = () => {
-    return items?.map(item => (
-      <SwiperSlide key={item.id}>
-        <Card 
-          title={item.title}
-          img={item.photo}
-          price={item.price} 
-          id={item.id}
-        />
-      </SwiperSlide>
-    ));
+    const cards = []
+    items && items.map(item => {
+      cards.push(
+        <SwiperSlide key={item.id}>
+          <Card 
+            title={item.title}
+            img={item.photo}
+            price={item.price} 
+            id={item.id}
+          />
+        </SwiperSlide>
+      )
+    })
+
+    return cards
   };
 
   return (
@@ -22,11 +34,7 @@ export function MenuCarousel({ title, items }) {
       <Swiper
         spaceBetween={50}
         slidesPerView={2}
-        pagination={{
-          clickable: true,
-          el: ".swiper-pagination", // Garante que será renderizado na classe específica.
-        }}
-        modules={[Pagination]}
+        pagination={{ clickable: true }}
         breakpoints={{
           768: {
             slidesPerView: 3,
@@ -38,7 +46,6 @@ export function MenuCarousel({ title, items }) {
       >
         {renderCards()}
       </Swiper>
-      <div className="swiper-pagination"></div> {/* Contêiner para as bolinhas */}
     </Container>
   );
 }

@@ -6,7 +6,7 @@ import { AuthRoutes } from "./auth.routes";
 export function Routes(){
   return(
     <BrowserRouter future={{v7_startTransition: true,}}>
-      <AppRoutes />
+      <AuthRoutes />
     </BrowserRouter>
   )
 }
