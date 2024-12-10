@@ -10,15 +10,16 @@ export function SignIn() {
     <Container className="app">
       <Logo />
       <div className="wrapper">
+        <h1>Faça login</h1>
         <p>Email</p>
         <input type="email" placeholder="exemplo@email.com" />
         <p>Senha</p>
         <input type="password" placeholder="No mínimo 6 caracteres" />
         <Button title="Entrar" />
-      </div>
         <Link to={"/register"}>
           <ButtonText title="Criar uma conta" />
         </Link>
+      </div>
     </Container>
   )
 }
