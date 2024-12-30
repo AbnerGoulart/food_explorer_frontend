@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { FiMenu } from "react-icons/fi";
 import { PiReceiptLight } from "react-icons/pi";
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.div`
   width: 100%;
   height: 114px;
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
-  margin: 0 auto;
+  margin: 0 auto 2rem;
 
   position: relative;
   top: 0;
@@ -17,6 +18,10 @@ export const Container = styled.div`
   justify-content: space-around;
   align-items: center;
   gap: 2rem;
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
+
+  }
 
   button {
     background: transparent;
@@ -34,6 +39,10 @@ export const MenuIcon = styled(FiMenu)`
   font-size: 2rem;
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
   cursor: pointer;
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
+    display: none;
+  }
 `;
 
 export const ReceiptIcon = styled(PiReceiptLight)`
