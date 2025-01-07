@@ -11,7 +11,9 @@ export function NewDish(){
       <Header />
       <div className="wrapper">
         <Link to="/">
-          <ButtonText title="< voltar" />
+          <ButtonText>
+            Voltar
+          </ButtonText>
         </Link>
         <h1>Novo prato</h1>
         <div className="labelInput">
