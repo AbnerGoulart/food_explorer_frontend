@@ -25,7 +25,9 @@ export function DescriptionCard() {
   return (
     <Container>
       <Link to="/" className="header">
-        <ButtonText title="< voltar" />
+        <ButtonText>
+          Voltar
+        </ButtonText>
       </Link>
       <div className="wrapper">
         <img src={dish.photo} alt="" />

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   width: 210px;
-  height: 292px;
+  min-height: 292px;
   padding: 24px;
   flex-direction: column;
   align-items: center;
@@ -13,7 +13,15 @@ export const Container = styled.div`
   border: 1px solid ${({theme}) => theme.COLORS.DARK_300};
   background: ${({theme}) => theme.COLORS.DARK_200};
 
-  cursor: pointer;
+  .action {
+    width: 100%;
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+    }
+  }
 
   img {
     width: 88px;

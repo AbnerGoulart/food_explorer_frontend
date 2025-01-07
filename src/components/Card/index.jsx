@@ -1,14 +1,17 @@
 import { Container } from "./styles";
 import { Button } from "../Button";
-import { PiPlus, PiMinus } from "react-icons/pi";
+import { ButtonText } from "../ButtonText";
+import { PiPlus, PiMinus, PiHeart, PiPencil } from "react-icons/pi";
 import { useReducer, useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import { DishesContext } from "../../contexts/DishesContext";
-import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
 
 const initializeState = { count: 1 };
 
 function reducer(state, action) {
+
   switch (action.type) {
     case 'increment':
       return { count: state.count + 1 };
@@ -30,7 +33,10 @@ const formatPrice = (price) => {
 export function Card({ title, img, price, id }) {
   const [state, dispatch] = useReducer(reducer, initializeState);
   const { items, setItems } = useContext(CartContext);
+  const { type } = useContext(AuthContext)
   const dishes = useContext(DishesContext);
+  const navigate = useNavigate()
+
 
   if (!dishes) return <p>Carregando...</p>
 
@@ -46,8 +52,17 @@ export function Card({ title, img, price, id }) {
     ]);
   };
 
+  const handleEdit = () => {
+    navigate(`/details/${id}`)
+  }
+
   return (
     <Container>
+      <div className="action">
+        <ButtonText>
+          {type === "admin" ? <PiPencil onClick={handleEdit}/> : <PiHeart />}
+        </ButtonText>
+      </div>
       <Link to={`details/${id}`} >
         <img src={img} alt={title} />
       </Link>

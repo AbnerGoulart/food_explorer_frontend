@@ -25,7 +25,9 @@ export function Menu() {
                 type="text"
                 placeholder="Busque por pratos ou ingredientes"
               />
-              <ButtonText title="Sair" onClick={handleSignOut} />
+              <ButtonText onClick={handleSignOut}>
+                Sair
+              </ButtonText>
             </div>
             <Footer />
           </CartProvider>
