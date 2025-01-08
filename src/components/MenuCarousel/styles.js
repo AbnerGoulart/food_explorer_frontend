@@ -5,5 +5,5 @@ export const Container = styled.div`
   height: 24.75rem;
   background: transparent;
   padding: 2rem;
-  margin: 0 auto; 
+  margin: 0 auto 3rem; 
 `;
