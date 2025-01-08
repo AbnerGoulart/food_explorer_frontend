@@ -19,12 +19,16 @@ export const Container = styled.div`
   align-items: center;
   gap: 2rem;
 
-  @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
-
+  input {
+    display: none;
   }
 
-  button {
-    background: transparent;
+  .signout {
+    display: none;
+  }
+
+  .button {
+    display: none;
   }
 
   .receiptContainer {
@@ -32,6 +36,41 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
+    padding: 24px 123px;
+    justify-content: space-between;
+    align-items: center;
+
+    input {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 14px;
+      margin: auto;
+      gap: 2rem;
+      width: 521px;
+      height: 3.5rem;
+    }
+
+    .receiptContainer {
+      display: none;
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 216px;
+      height: 3rem;
+      padding: 12px 14px;
+      gap: 2rem;
+    }
+
+    .signout {
+      display: block;
+    }
   }
 `;
 
