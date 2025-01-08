@@ -2,7 +2,7 @@ import { Container } from "./styles";
 import { Button } from "../Button";
 import { ButtonText } from "../ButtonText";
 import { PiPlus, PiMinus, PiHeart, PiPencil } from "react-icons/pi";
-import { useReducer, useContext } from "react";
+import { useReducer, useContext, useState } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import { DishesContext } from "../../contexts/DishesContext";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -32,6 +32,7 @@ const formatPrice = (price) => {
 
 export function Card({ title, img, price, id }) {
   const [state, dispatch] = useReducer(reducer, initializeState);
+  const [isLike, setIsLike] = useState(false)
   const { items, setItems } = useContext(CartContext);
   const { type } = useContext(AuthContext)
   const dishes = useContext(DishesContext);
@@ -56,11 +57,14 @@ export function Card({ title, img, price, id }) {
     navigate(`/details/${id}`)
   }
 
+  const toggleLike = () => {setIsLike((prevState) => !prevState)}
+
+
   return (
     <Container>
       <div className="action">
         <ButtonText>
-          {type === "admin" ? <PiPencil onClick={handleEdit}/> : <PiHeart />}
+          {type === "admin" ? <PiPencil onClick={handleEdit}/> : <PiHeart onClick={toggleLike}/>}
         </ButtonText>
       </div>
       <Link to={`details/${id}`} >

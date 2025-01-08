@@ -1,23 +1,45 @@
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 import { Container, MenuIcon, ReceiptIcon, Counter } from "./styles";
 import { Logo } from "../Logo";
-import { useContext } from "react";
+import { MenuModal } from "../MenuModal";
+import { useContext, useState } from "react";
 import { CartContext } from "../../contexts/CartContext";
-import { Link } from "react-router-dom";
+import { ButtonText } from "../ButtonText";
+import { PiSignOut } from "react-icons/pi";
+import { Button } from "../Button";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { count } = useContext(CartContext);
+  const { signOut } = useContext(AuthContext)
+
+  async function handleSignOut() {
+    await signOut();
+  }
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prevState) => !prevState);
+  };
 
   return (
     <Container>
-      <Link to="/menu">
-        <MenuIcon />
-      </Link>
+      <MenuIcon />
       <Logo size="1.5rem" />
+      <input type="text" placeholder="Busque por pratos ou ingredientes" />
+      <div className="button">
+        <Button title={`Pedidos (${count})`} />
+      </div>
       <div className="receiptContainer">
         <ReceiptIcon />
         <Counter>
           <span>{count}</span>
         </Counter>
+      </div>
+      <div className="signout">
+        <ButtonText onClick={handleSignOut}>
+          <PiSignOut />
+        </ButtonText>
       </div>
     </Container>
   );
