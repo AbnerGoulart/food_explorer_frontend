@@ -1,24 +1,39 @@
 import styled from "styled-components";
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
+
+export const BackgroundBlur = styled.div`
+  width: 100%;
+  height: 100%;
+
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.5);
+
+  @media(min-width: ${DEVICE_BREAKPOINTS.LG}) {
+    display: none;
+  }
+`
 
 export const Container = styled.div`
-  width: 100%;
-  min-height: 100vh;
+  width: 80%;
+  min-height: 80vh;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  position: fixed;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-  .content {
-    width: 372px;
-    display: flex;
-    flex-direction: column;
-    margin: 36px auto;
-    justify-content: flex-start;
-    border-bottom: 1px solid ${({theme}) => theme.COLORS.LIGHT_600};
-  }
+  border-radius: 8px;
 
-  input {
-    width: 100%;
+  border: 1px solid yellow;
+  margin: 0 auto;
+
+  @media(min-width: ${DEVICE_BREAKPOINTS.LG}) {
+    display: none;
   }
 `
