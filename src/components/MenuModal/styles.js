@@ -33,12 +33,38 @@ export const Container = styled.div`
   overflow: hidden;
   margin: 0 auto;
 
+  box-shadow: 0px 0px 15px 8px rgba(0, 0, 0, 0.75);
+  animation: fadeIn 700ms ease 0s 1 normal forwards;
+
+  button {
+    padding: 0;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.6);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
   .header {
     width: 100%;
-    height: 5rem;
+    height: 4rem;
     background-color: ${({ theme }) => theme.COLORS.DARK_700};
     margin: 0 auto;
     padding: 1rem;
+
+
+    p {
+      font-family: 'Roboto';
+      font-size: 1.3rem;
+      font-weight: 400;
+    }
   }
 
   .content {
@@ -46,9 +72,28 @@ export const Container = styled.div`
     width: 100%;
     height: 100%;
 
+    button {
+      position: relative;
+      margin: 1rem 0;
+    }
+
+    button::after {
+      content: "";
+      background-color: #fff;
+      position: absolute;
+      height: 1px;
+      width: 0;
+      bottom: 0;
+      transition: 500ms;
+    }
+
+    button:hover::after {
+      width: 100%;
+    }
+
     input {
       display: block;
-      margin: 1rem auto;
+      width: 100%;
     }
   }
 

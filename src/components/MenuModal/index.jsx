@@ -7,6 +7,7 @@ import { Footer } from "../Footer";
 import { ButtonText } from "../ButtonText";
 import { useContext, useState } from "react";
 import { Button } from "../Button";
+import { PiXBold, PiMagnifyingGlass } from "react-icons/pi";
 
 export function MenuModal({toggleMenu}) {
   const { signOut, type } = useContext(AuthContext);
@@ -24,7 +25,8 @@ export function MenuModal({toggleMenu}) {
       <Container>
         <div className="header">
           <ButtonText onClick={toggleMenu}>
-            X Menu
+            <PiXBold />
+            <p>Menu</p>
           </ButtonText> 
         </div>
         <div className="content">
