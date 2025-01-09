@@ -22,9 +22,14 @@ export function Header() {
     setIsMenuOpen((prevState) => !prevState);
   };
 
+  const renderMenuModal = () => {
+    return isMenuOpen === true ? <MenuModal toggleMenu={toggleMenu}/> : null
+  }
+
   return (
     <Container>
-      <MenuIcon />
+      {renderMenuModal()}
+      <MenuIcon onClick={toggleMenu}/>
       <Logo size="1.5rem" />
       <input type="text" placeholder="Busque por pratos ou ingredientes" />
       <div className="button">

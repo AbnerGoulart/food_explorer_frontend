@@ -1,38 +1,29 @@
-import { Container } from "./styles";
+import { Container, BackgroundBlur } from "./styles";
 import { AuthContext, AuthProvider } from "../../contexts/AuthContext";
 import { CartProvider } from "../../contexts/CartContext";
 import { DishesProvider } from "../../contexts/DishesContext";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
 import { ButtonText } from "../ButtonText";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
-export function MenuModal() {
+export function MenuModal({toggleMenu}) {
   const { signOut } = useContext(AuthContext);
 
   async function handleSignOut() {
     await signOut();
   }
 
+  // const toggleMenu = () => {
+  //   setIsMenuOpen((prevState) => !prevState);
+  // };
+
   return (
-    <Container>
-      <AuthProvider>
-        <DishesProvider>
-          <CartProvider>
-            <Header />
-            <div className="content">
-              <input
-                type="text"
-                placeholder="Busque por pratos ou ingredientes"
-              />
-              <ButtonText onClick={handleSignOut}>
-                Sair
-              </ButtonText>
-            </div>
-            <Footer />
-          </CartProvider>
-        </DishesProvider>
-      </AuthProvider>
-    </Container>
+    <BackgroundBlur>
+      <Container>
+        <button onClick={toggleMenu}>X</button>
+        <h1>Menu Modal</h1>
+      </Container>
+    </BackgroundBlur>
   );
 }
