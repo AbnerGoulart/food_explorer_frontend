@@ -6,9 +6,10 @@ import { Header } from "../Header";
 import { Footer } from "../Footer";
 import { ButtonText } from "../ButtonText";
 import { useContext, useState } from "react";
+import { Button } from "../Button";
 
 export function MenuModal({toggleMenu}) {
-  const { signOut } = useContext(AuthContext);
+  const { signOut, type } = useContext(AuthContext);
 
   async function handleSignOut() {
     await signOut();
@@ -21,8 +22,28 @@ export function MenuModal({toggleMenu}) {
   return (
     <BackgroundBlur>
       <Container>
-        <button onClick={toggleMenu}>X</button>
-        <h1>Menu Modal</h1>
+        <div className="header">
+          <ButtonText onClick={toggleMenu}>
+            X Menu
+          </ButtonText> 
+        </div>
+        <div className="content">
+          <input type="text" placeholder="Busque por pratos ou ingredientes"/>
+          {type === "admin" ? (
+            <>
+              <ButtonText>
+                Novo Prato
+              </ButtonText>
+              <ButtonText onClick={handleSignOut}>
+                Sair
+              </ButtonText>
+            </>
+          ) : (
+            <ButtonText onClick={handleSignOut}>
+              Sair
+            </ButtonText>
+          )}
+        </div>
       </Container>
     </BackgroundBlur>
   );

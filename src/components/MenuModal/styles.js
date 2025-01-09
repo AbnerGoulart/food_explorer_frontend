@@ -13,14 +13,15 @@ export const BackgroundBlur = styled.div`
   backdrop-filter: blur(8px);
   background-color: rgba(0, 0, 0, 0.5);
 
-  @media(min-width: ${DEVICE_BREAKPOINTS.LG}) {
+  @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
     display: none;
   }
-`
+`;
 
 export const Container = styled.div`
   width: 80%;
   min-height: 80vh;
+  background-color: ${({ theme }) => theme.COLORS.DARK_400};
 
   position: fixed;
   z-index: 1000;
@@ -29,11 +30,29 @@ export const Container = styled.div`
   transform: translate(-50%, -50%);
 
   border-radius: 8px;
-
-  border: 1px solid yellow;
+  overflow: hidden;
   margin: 0 auto;
 
-  @media(min-width: ${DEVICE_BREAKPOINTS.LG}) {
+  .header {
+    width: 100%;
+    height: 5rem;
+    background-color: ${({ theme }) => theme.COLORS.DARK_700};
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  .content {
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+
+    input {
+      display: block;
+      margin: 1rem auto;
+    }
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
     display: none;
   }
-`
+`;
