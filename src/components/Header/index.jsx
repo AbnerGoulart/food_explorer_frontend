@@ -5,7 +5,7 @@ import { MenuModal } from "../MenuModal";
 import { useContext, useState } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import { ButtonText } from "../ButtonText";
-import { PiSignOut } from "react-icons/pi";
+import { PiSignOut, PiMagnifyingGlass } from "react-icons/pi";
 import { Button } from "../Button";
 import { AuthContext } from "../../contexts/AuthContext";
 
