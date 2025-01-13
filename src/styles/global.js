@@ -88,7 +88,6 @@ export default createGlobalStyle`
     padding: 0.75rem 0.875rem;
     border: none;
     outline: none;
-    margin-bottom: 2rem;
   }
 
   @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {

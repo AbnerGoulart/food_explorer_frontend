@@ -4,6 +4,8 @@ import { ButtonText } from '../../components/ButtonText'
 import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
 import { Container } from './styles'
+import { PiUploadSimpleBold } from 'react-icons/pi'
+import { Input } from '../../components/Input'
 
 export function EditDish(){
   return(
@@ -11,30 +13,30 @@ export function EditDish(){
       <Header />
       <div className="wrapper">
         <Link to="/">
-          <ButtonText>
+          <ButtonText size={24}>
             Voltar
           </ButtonText>
         </Link>
         <h1>Novo prato</h1>
         <div className="labelInput">
           <p>Imagem do prato</p>
-          <input type="text" placeholder='Selecione imagem'/>
+          <Input icon={PiUploadSimpleBold} placeholder="Selecione imagem" />
         </div>
         <div className="labelInput">
           <p>Nome</p>
-          <input type="text" placeholder='Ex: Salada Ceasar'/>
+          <Input type="text" placeholder='Ex: Salada Ceasar'/>
         </div>
         <div className="labelInput">
           <p>Categoria</p>
-          <input type="text" placeholder='Bebidas'/>
+          <Input type="text" placeholder='Bebidas'/>
         </div>
         <div className="labelInput">
           <p>Ingredientes</p>
-          <input type="text" />
+          <Input type="text" />
         </div>
         <div className="labelInput">
           <p>Preço</p>
-          <input type="text" placeholder='R$ 00,00'/>
+          <Input type="text" placeholder='R$ 00,00'/>
         </div>
         <div className="labelInput">
           <p>Descrição</p>

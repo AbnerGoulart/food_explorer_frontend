@@ -8,6 +8,7 @@ import { ButtonText } from "../ButtonText";
 import { PiSignOut, PiMagnifyingGlass } from "react-icons/pi";
 import { Button } from "../Button";
 import { AuthContext } from "../../contexts/AuthContext";
+import { Input } from "../Input";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,9 +32,11 @@ export function Header() {
       {renderMenuModal()}
       <MenuIcon onClick={toggleMenu}/>
       <Logo size="1.5rem" />
-      <input type="text" placeholder="Busque por pratos ou ingredientes" />
+      <div className="input">
+        <Input type="text" placeholder="Busque por pratos ou ingredientes" />
+      </div>
       <div className="button">
-        <Button title={`Pedidos (${count})`} />
+        <Button icon={<ReceiptIcon />} title={`Pedidos (${count})`} />
       </div>
       <div className="receiptContainer">
         <ReceiptIcon />

@@ -19,7 +19,7 @@ export const Container = styled.div`
   align-items: center;
   gap: 2rem;
 
-  input {
+  .input {
     display: none;
   }
 
@@ -43,7 +43,7 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    input {
+    .input {
       display: flex;
       align-items: center;
       justify-content: center;

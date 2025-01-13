@@ -8,6 +8,7 @@ import { ButtonText } from "../ButtonText";
 import { useContext, useState } from "react";
 import { Button } from "../Button";
 import { PiXBold, PiMagnifyingGlass } from "react-icons/pi";
+import { Input } from "../Input";
 
 export function MenuModal({toggleMenu}) {
   const { signOut, type } = useContext(AuthContext);
@@ -26,11 +27,11 @@ export function MenuModal({toggleMenu}) {
         <div className="header">
           <ButtonText onClick={toggleMenu}>
             <PiXBold />
-            <p>Menu</p>
           </ButtonText> 
+          <p>Menu</p>
         </div>
         <div className="content">
-          <input type="text" placeholder="Busque por pratos ou ingredientes"/>
+          <Input type="text" placeholder="Busque por pratos ou ingredientes"/>
           {type === "admin" ? (
             <>
               <ButtonText>
