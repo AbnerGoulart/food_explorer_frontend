@@ -6,6 +6,7 @@ import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { ButtonText } from "../../components/ButtonText";
 import { useContext } from "react";
+import { Input } from "../../components/Input";
 
 export function Menu() {
   const { signOut } = useContext(AuthContext);
@@ -21,7 +22,7 @@ export function Menu() {
           <CartProvider>
             <Header />
             <div className="content">
-              <input
+              <Input
                 type="text"
                 placeholder="Busque por pratos ou ingredientes"
               />

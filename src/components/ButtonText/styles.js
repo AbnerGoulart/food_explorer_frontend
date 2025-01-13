@@ -11,7 +11,7 @@ export const Container = styled.button`
   height: 34px;
 
   font-family: 'Poppins', sans-serif;
-  font-size: 24px;
+  font-size: 1rem;
   font-weight: 300;
   line-height: 140%;
 `;

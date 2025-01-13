@@ -3,6 +3,7 @@ import { Button } from "../../components/Button";
 import { ButtonText } from "../../components/ButtonText";
 import { Logo } from "../../components/Logo";
 import { Container } from "./styles";
+import { Input } from "../../components/Input";
 
 
 export function SignUp() {
@@ -12,11 +13,11 @@ export function SignUp() {
       <div className="wrapper">
         <h1>Crie sua conta</h1>
         <p>Seu nome</p>
-        <input type="text" placeholder="Exemplo: Maria Alice" />
+        <Input type="text" placeholder="Exemplo: Maria Alice" />
         <p>Email</p>
-        <input type="email" placeholder="exemplo@email.com" />
+        <Input type="email" placeholder="exemplo@email.com" />
         <p>Senha</p>
-        <input type="password" placeholder="No mínimo 6 caracteres" />
+        <Input type="password" placeholder="No mínimo 6 caracteres" />
         <Button title="Criar conta" />
         <Link to="/">
           <ButtonText>
