@@ -31,7 +31,7 @@ export function MenuModal({toggleMenu}) {
           <p>Menu</p>
         </div>
         <div className="content">
-          <Input type="text" placeholder="Busque por pratos ou ingredientes"/>
+          <Input icon={PiMagnifyingGlass} type="text" placeholder="Busque por pratos ou ingredientes"/>
           {type === "admin" ? (
             <>
               <ButtonText>

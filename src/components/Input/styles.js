@@ -1,20 +1,18 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  max-height: 48px;
+  height: 3rem;
   width: 100%;
   margin-bottom: 1rem;
 
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 
   color: ${({ theme }) => theme.COLORS.LIGHT_300};
   background-color: ${({ theme }) => theme.COLORS.DARK_900};
   border-radius: 0.3125rem;
-  padding: 12px 32px;
   gap: 0.5rem;
-
 
   input {
     border: none;
@@ -28,11 +26,12 @@ export const Container = styled.div`
 
     &::placeholder {
       font-family: "Poppins";
-      color: ${({ theme }) => theme.COLORS.LIGHT_100};
+      color: ${({ theme }) => theme.COLORS.LIGHT_500};
     }
   }
 
   svg {
-    color: ${({ theme }) => theme.COLORS.LIGHT_100};
+    color: ${({ theme }) => theme.COLORS.LIGHT_500};
+    margin-left: 1rem;
   }
 `;

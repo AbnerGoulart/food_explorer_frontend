@@ -75,15 +75,15 @@ export function Card({ title, img, price, id }) {
       <h3>{title}</h3>
       <span className="price">{formatPrice(price)}</span>
       <div className="amount">
-        <button onClick={() => dispatch({ type: 'decrement' })}>
+        <ButtonText onClick={() => dispatch({ type: 'decrement' })}>
           <PiMinus />
-        </button>
+        </ButtonText>
         <span>{String(state.count).padStart(2, '0')}</span>
-        <button onClick={() => dispatch({ type: 'increment' })}>
+        <ButtonText onClick={() => dispatch({ type: 'increment' })}>
           <PiPlus />
-        </button>
+        </ButtonText>
+        <Button title="incluir" onClick={() => handleAddToCart(title, price)} />
       </div>
-      <Button title="incluir" onClick={() => handleAddToCart(title, price)} />
     </Container>
   );
 }

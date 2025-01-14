@@ -13,7 +13,7 @@ import { Input } from "../Input";
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { count } = useContext(CartContext);
-  const { signOut } = useContext(AuthContext)
+  const { signOut } = useContext(AuthContext);
 
   async function handleSignOut() {
     await signOut();
@@ -24,30 +24,36 @@ export function Header() {
   };
 
   const renderMenuModal = () => {
-    return isMenuOpen === true ? <MenuModal toggleMenu={toggleMenu}/> : null
-  }
+    return isMenuOpen === true ? <MenuModal toggleMenu={toggleMenu} /> : null;
+  };
 
   return (
     <Container>
-      {renderMenuModal()}
-      <MenuIcon onClick={toggleMenu}/>
-      <Logo size="1.5rem" />
-      <div className="input">
-        <Input type="text" placeholder="Busque por pratos ou ingredientes" />
-      </div>
-      <div className="button">
-        <Button icon={<ReceiptIcon />} title={`Pedidos (${count})`} />
-      </div>
-      <div className="receiptContainer">
-        <ReceiptIcon />
-        <Counter>
-          <span>{count}</span>
-        </Counter>
-      </div>
-      <div className="signout">
-        <ButtonText onClick={handleSignOut}>
-          <PiSignOut />
-        </ButtonText>
+      <div className="wrapper">
+        {renderMenuModal()}
+        <MenuIcon onClick={toggleMenu} />
+        <Logo size="1.5rem" />
+        <div className="input">
+          <Input
+            icon={PiMagnifyingGlass}
+            type="text"
+            placeholder="Busque por pratos ou ingredientes"
+          />
+        </div>
+        <div className="button">
+          <Button icon={<ReceiptIcon />} title={`Pedidos (${count})`} />
+        </div>
+        <div className="receiptContainer">
+          <ReceiptIcon />
+          <Counter>
+            <span>{count}</span>
+          </Counter>
+        </div>
+        <div className="signout">
+          <ButtonText onClick={handleSignOut}>
+            <PiSignOut />
+          </ButtonText>
+        </div>
       </div>
     </Container>
   );

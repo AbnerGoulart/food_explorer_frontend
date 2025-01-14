@@ -2,34 +2,47 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  width: 210px;
-  min-height: 292px;
+  max-width: 19rem;
+  min-height: 462px;
   padding: 24px;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   flex-shrink: 0;
   border-radius: 8px;
   border: 1px solid ${({theme}) => theme.COLORS.DARK_300};
   background: ${({theme}) => theme.COLORS.DARK_200};
 
+  position: relative;
+
+
   .action {
-    width: 100%;
+    width: fit-content;
+    position: absolute;
+    z-index: 100;
+    right: 10px;
 
     button {
       display: flex;
       align-items: center;
       justify-content: end;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        z-index: 100;
+      }
     }
   }
 
   img {
-    width: 88px;
-    height: 88px;
+    width: 176px;
+    height: 176px;
   }
 
   .price {
     color: ${({theme}) => theme.COLORS.CAKE_200};
+    font-size: 32px;
   }
 
   .amount {
@@ -38,11 +51,7 @@ export const Container = styled.div`
     align-items: center;
 
     button {
-      background: transparent;
+      width: 100%;
     }
-  }
-
-  button {
-    width: 100%;
   }
 `;

@@ -19,6 +19,13 @@ export const Container = styled.div`
   align-items: center;
   gap: 2rem;
 
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+
   .input {
     display: none;
   }
@@ -38,20 +45,29 @@ export const Container = styled.div`
     align-items: center;
   }
 
+  /* Estilizações específicas para telas grandes */
   @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
-    padding: 24px 123px;
-    justify-content: space-between;
-    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    .wrapper {
+      padding: 24px 123px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      width: 1368px;
+    }
 
     .input {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 12px 14px;
       margin: auto;
       gap: 2rem;
       width: 521px;
-      height: 3.5rem;
+      height: 48px;
+      margin-top: 1rem;
     }
 
     .receiptContainer {
@@ -69,7 +85,12 @@ export const Container = styled.div`
     }
 
     .signout {
-      display: block;
+      display: flex;
+
+      svg {
+        height: 2rem;
+        width: 2rem;
+      }
     }
   }
 `;

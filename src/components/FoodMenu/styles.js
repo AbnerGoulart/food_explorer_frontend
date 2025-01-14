@@ -3,5 +3,5 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   background: transparent;
-  margin: 0 auto 25px;
+  margin-bottom: 5rem;
 `;
