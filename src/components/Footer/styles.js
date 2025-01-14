@@ -28,8 +28,6 @@ export const Container = styled.div`
       align-items: center;
       gap: 2rem;
       width: 1368px;
-
-      border: 1px solid white;
     }
   }
 `;
