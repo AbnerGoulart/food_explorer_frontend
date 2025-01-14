@@ -16,10 +16,14 @@ export const Container = styled.div`
 
   .wrapper {
     margin-top: 73px;
-    margin-bottom: 0;
 
     h1 {
       display: none;
+      font-family: "Poppins";
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 140%;
     }
 
     button {
@@ -33,6 +37,11 @@ export const Container = styled.div`
       background-color: ${({ theme }) => theme.COLORS.DARK_700};
       padding: 4rem;
       border-radius: 8px;
+      margin-top: 0;
+
+      .content {
+        width: 348px;
+      }
 
       h1 {
         display: flex;

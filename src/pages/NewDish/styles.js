@@ -9,10 +9,22 @@ export const Container = styled.div`
   gap: 2rem;
   
   .wrapper {
-    width: 364px;
-    
     input, textarea {
       width: 100%;
     }
+  }
+
+  .ingredients {
+    background-color: ${({theme}) => theme.COLORS.DARK_900};
+    border-radius: 0.3125rem;
+    height: auto;
+    gap: 1rem;
+
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    padding: 8px;
+
   }
 `

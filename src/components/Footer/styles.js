@@ -21,5 +21,15 @@ export const Container = styled.div`
   @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
     padding: 24px 123px;
     justify-content: space-between;
+
+    .wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      width: 1368px;
+
+      border: 1px solid white;
+    }
   }
 `;

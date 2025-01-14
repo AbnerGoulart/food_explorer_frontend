@@ -28,24 +28,26 @@ export function SignIn() {
       <Logo />
       <div className="wrapper">
         <h1>Faça login</h1>
-        <p>Email</p>
-        <Input 
-          type="email" 
-          placeholder="exemplo@email.com"
-          onChange={event => setEmail(event.target.value)}
-        />
-        <p>Senha</p>
-        <Input 
-          type="password" 
-          placeholder="No mínimo 6 caracteres"
-          onChange={event => setPassword(event.target.value)}
-        />
-        <Button title="Entrar" onClick={handleSignIn}/>
-        <Link to={"/register"}>
-          <ButtonText>
-            Criar uma conta
-          </ButtonText>
-        </Link>
+        <div className="content">
+          <p>Email</p>
+          <Input 
+            type="email" 
+            placeholder="exemplo@email.com"
+            onChange={event => setEmail(event.target.value)}
+          />
+          <p>Senha</p>
+          <Input 
+            type="password" 
+            placeholder="No mínimo 6 caracteres"
+            onChange={event => setPassword(event.target.value)}
+          />
+          <Button title="Entrar" onClick={handleSignIn}/>
+          <Link to={"/register"}>
+            <ButtonText>
+              Criar uma conta
+            </ButtonText>
+          </Link>
+        </div>
       </div>
     </Container>
   )

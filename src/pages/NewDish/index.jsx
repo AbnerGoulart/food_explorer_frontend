@@ -5,6 +5,7 @@ import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
 import { Container } from './styles'
 import { Input } from '../../components/Input'
+import { TagItem } from '../../components/TagItem'
 
 export function NewDish(){
   return(
@@ -31,7 +32,10 @@ export function NewDish(){
         </div>
         <div className="labelInput">
           <p>Ingredientes</p>
-          <Input type="text" />
+          <div className="ingredients">
+            <TagItem value="Pão" isNew={false}/>
+            <TagItem placeholder="Adicionar" isNew={true}/>
+          </div>
         </div>
         <div className="labelInput">
           <p>Preço</p>
