@@ -8,9 +8,7 @@ export const Container = styled.div`
   min-height: 100vh;
   gap: 2rem;
   
-  .wrapper {
-    width: 364px;
-    
+  .wrapper {    
     input, textarea {
       width: 100%;
     }
