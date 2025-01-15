@@ -22,7 +22,7 @@ export function AuthProvider ({children}){
     }
 
     function signOut() {
-      setUser(null);
+      setUser("");
       localStorage.removeItem('user');
       navigate("/")
     }
@@ -31,6 +31,8 @@ export function AuthProvider ({children}){
       const storedUser = localStorage.getItem('user');
       if (storedUser) {
         setUser(JSON.parse(storedUser));
+      } else {
+        setUser("");
       }
     }, [])
   

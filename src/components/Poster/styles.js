@@ -21,6 +21,7 @@ export const Container = styled.div`
   }
 
   @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
+    display: flex;
     width: 1120px;
     height: 260px;
     margin: 164px auto 24px;
