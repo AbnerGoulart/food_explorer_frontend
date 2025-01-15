@@ -5,10 +5,7 @@ import { Logo } from "../../components/Logo";
 import { Container } from "./styles";
 import { useState, useContext } from "react";
 import { Input } from "../../components/Input";
-
-import { api } from "../../api";
 import { AuthContext } from "../../contexts/AuthContext";
-
 
 export function SignIn() {
   const [email, setEmail] = useState("")
@@ -23,12 +20,22 @@ export function SignIn() {
     }
   }
 
+  // Estou declarando uma função denominada keyDown 
+  // que recebe como parametro um evento javascript, 
+  // caso a tecla acionada no evento seja Enter,
+  // então chamamos a função handleSignIn().
+  const keyDown = (event) => {
+    if (event.key === 'Enter') {
+      handleSignIn()
+    }
+  }
+
   return (
     <Container className="app">
       <Logo />
       <div className="wrapper">
         <h1>Faça login</h1>
-        <div className="content">
+        <div className="content" onKeyDown={keyDown}>
           <p>Email</p>
           <Input 
             type="email" 
@@ -41,7 +48,7 @@ export function SignIn() {
             placeholder="No mínimo 6 caracteres"
             onChange={event => setPassword(event.target.value)}
           />
-          <Button title="Entrar" onClick={handleSignIn}/>
+          <Button title="Entrar" onClick={handleSignIn} />
           <Link to={"/register"}>
             <ButtonText>
               Criar uma conta
