@@ -2,20 +2,18 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  max-width: 19rem;
-  min-height: 462px;
+  width: 304px;
+  height: 462px;
   padding: 24px;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
   flex-shrink: 0;
   border-radius: 8px;
   border: 1px solid ${({theme}) => theme.COLORS.DARK_300};
   background: ${({theme}) => theme.COLORS.DARK_200};
 
   position: relative;
-
-
+  
   .action {
     width: fit-content;
     position: absolute;

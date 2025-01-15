@@ -32,13 +32,10 @@ export function MenuCarousel({title, items}) {
     <Container>
       <Heading title={title} />
       <Swiper
-        spaceBetween={50}
+        spaceBetween={250}
         slidesPerView={2}
         pagination={{ clickable: true }}
         breakpoints={{
-          768: {
-            slidesPerView: 3,
-          },
           1024: {
             slidesPerView: 4,
           },
