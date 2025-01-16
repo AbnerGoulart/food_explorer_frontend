@@ -1,5 +1,5 @@
 import { Card } from "../Card";
-import { Container } from "./styles";
+import { Container, StyledSwiper } from "./styles";
 import { Heading } from "../Heading";
 import { register } from "swiper/element";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -30,18 +30,30 @@ export function MenuCarousel({title, items}) {
   return (
     <Container>
       <Heading title={title} />
-      <Swiper
-        spaceBetween={50}
-        slidesPerView={1}
-        pagination={{ clickable: true }}
-        breakpoints={{
-          1024: {
-            slidesPerView: 4,
-          },
-        }}
-      >
-        {renderCards()}
-      </Swiper>
+      <StyledSwiper>
+
+        <Swiper
+          spaceBetween={27}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 15,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+          }}
+        >
+          {renderCards()}
+        </Swiper>
+      </StyledSwiper>
     </Container>
   );
 }
