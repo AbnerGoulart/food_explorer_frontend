@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.div`
-  width: 23.5rem;
+  width: 90vw;
   height: 7.5rem;
   border-radius: 0.2rem;
   background: ${({ theme }) => theme.COLORS.GRADIENT_200};
@@ -10,6 +10,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   margin: 44px auto;
+  animation: fadeIn 2s ease-in 0s 1 normal forwards;
 
   @keyframes fadeIn {
     0% {
@@ -25,20 +26,19 @@ export const Container = styled.div`
     width: 1120px;
     height: 260px;
     margin: 164px auto 24px;
-    animation: fadeIn 2s ease-in 0s 1 normal forwards;
   }
 
   .description {
     font-family: 'Poppins', sans-serif;
     width: 50%;
     position: absolute;
-    right: 0.5rem;
+    right: 0;
     display: flex;
     flex-direction: column;
   }
 
   h1 {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 500;
     font-family: 'Poppins';
 
@@ -48,7 +48,7 @@ export const Container = styled.div`
   }
 
   h3 {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 400;
     font-family: 'Roboto';
 
@@ -58,14 +58,14 @@ export const Container = styled.div`
   }
 
   img {
-    width: 50vw;
-    height: auto;
+    width: auto;
+    height: 110%;
     position: absolute;
     bottom: 0;
-    left: -3.5rem;
+    left: -2rem;
 
     @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
-     max-width: 33rem;
+     height: 140%;
      left: -7rem;
     }
   }
