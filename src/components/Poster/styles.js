@@ -10,9 +10,9 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   margin: 44px auto;
-  animation: fadeIn 2s ease-in 0s 1 normal forwards;
+  animation: posterFadeIn 1s ease-in 0s 1 normal forwards;
 
-  @keyframes fadeIn {
+  @keyframes posterFadeIn {
     0% {
       opacity: 0;
     }
@@ -23,7 +23,7 @@ export const Container = styled.div`
 
   @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
     display: flex;
-    width: 1120px;
+    width: 90vw;
     height: 260px;
     margin: 164px auto 24px;
   }

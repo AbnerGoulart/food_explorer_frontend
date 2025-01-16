@@ -72,16 +72,21 @@ export function Card({ title, img, price, id }) {
       <Link to={`details/${id}`} >
         <img src={img} alt={title} />
       </Link>
-      <h3>{title}</h3>
+      <div className="description">
+        <h3>{title}</h3>
+        <p>Este é um exemplo de descrição que posteriormente deverá ser importado do backend</p>
+      </div>
       <span className="price">{formatPrice(price)}</span>
       <div className="amount">
-        <ButtonText onClick={() => dispatch({ type: 'decrement' })}>
-          <PiMinus />
-        </ButtonText>
-        <span>{String(state.count).padStart(2, '0')}</span>
-        <ButtonText onClick={() => dispatch({ type: 'increment' })}>
-          <PiPlus />
-        </ButtonText>
+        <div className="counter">
+          <ButtonText onClick={() => dispatch({ type: 'decrement' })}>
+            <PiMinus />
+          </ButtonText>
+          <span>{String(state.count).padStart(2, '0')}</span>
+          <ButtonText onClick={() => dispatch({ type: 'increment' })}>
+            <PiPlus />
+          </ButtonText>
+        </div>
         <Button title="incluir" onClick={() => handleAddToCart(title, price)} />
       </div>
     </Container>
