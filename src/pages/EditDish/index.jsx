@@ -11,34 +11,34 @@ export function EditDish(){
   return(
     <Container>
       <Header />
-      <div className="wrapper">
+      <div className="edit-wrapper">
         <Link to="/">
-          <ButtonText size={24}>
+          <ButtonText className="backButton" size={24}>
             Voltar
           </ButtonText>
         </Link>
-        <h1>Novo prato</h1>
-        <div className="labelInput">
+        <h1 className='title'>Novo prato</h1>
+        <div className="imgInput">
           <p>Imagem do prato</p>
           <Input icon={PiUploadSimpleBold} placeholder="Selecione imagem" />
         </div>
-        <div className="labelInput">
+        <div className="nameInput">
           <p>Nome</p>
           <Input type="text" placeholder='Ex: Salada Ceasar'/>
         </div>
-        <div className="labelInput">
+        <div className="categoryInput">
           <p>Categoria</p>
           <Input type="text" placeholder='Bebidas'/>
         </div>
-        <div className="labelInput">
+        <div className="ingredientInput">
           <p>Ingredientes</p>
           <Input type="text" />
         </div>
-        <div className="labelInput">
+        <div className="priceInput">
           <p>Preço</p>
           <Input type="text" placeholder='R$ 00,00'/>
         </div>
-        <div className="labelInput">
+        <div className="descriptionInput">
           <p>Descrição</p>
           <textarea placeholder='Fale brevemente sobre o prato, seus ingredientes e composição '></textarea>
         </div>
