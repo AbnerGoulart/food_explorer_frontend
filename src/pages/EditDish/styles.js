@@ -9,11 +9,68 @@ export const Container = styled.div`
   min-height: 100vh;
 
   .edit-wrapper {
-    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .backButton {
+      padding: 0;
+    }
+
     input,
     textarea {
       width: 100%;
       height: 80%;
+    }
+
+    .imgInput {
+      label {
+        color: ${({ theme }) => theme.COLORS.LIGHT_300};
+        border-radius: 0.3125rem;
+        gap: 0.5rem;
+
+        height: 3rem;
+        width: 100%;
+        margin-bottom: 1rem;
+
+        display: flex;
+        align-items: center;
+
+        border: none;
+        outline: none;
+        background-color: ${({ theme }) => theme.COLORS.DARK_900};
+        width: 100%;
+        font-family: "Poppins";
+        color: ${({ theme }) => theme.COLORS.LIGHT_300};
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+
+        svg {
+          color: ${({ theme }) => theme.COLORS.LIGHT_300};
+          font-size: 24px;
+        }
+      }
+    }
+
+    #imgUpload {
+      display: none;
+    }
+
+    h1 {
+      font-family: Poppins;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 140%;
+    }
+
+    .custom-file-upload {
+      border: 1px solid #ccc;
+      display: inline-block;
+      padding: 6px 12px;
+      cursor: pointer;
     }
 
     p {
@@ -23,6 +80,37 @@ export const Container = styled.div`
       font-weight: 400;
       line-height: 100%;
       margin-bottom: 1rem;
+    }
+
+    .categoryInput {
+      width: 364px;
+      flex: 1 1 auto;
+      margin-bottom: 24px;
+
+      select {
+        appearance: none;
+        background-color: ${({ theme }) => theme.COLORS.DARK_900};
+        border-radius: 0.3125rem;
+        height: 3rem;
+        width: 100%;
+        gap: 1rem;
+
+        outline: none;
+        border: none;
+        padding: 1rem;
+
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%;
+        color: ${({ theme }) => theme.COLORS.LIGHT_400};
+
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.4545 7.8295C4.89384 7.39017 5.60616 7.39017 6.0455 7.8295L12 13.784L17.9545 7.8295C18.3938 7.39017 19.1062 7.39017 19.5455 7.8295C19.9848 8.26884 19.9848 8.98116 19.5455 9.4205L12.7955 16.1705C12.3562 16.6098 11.6438 16.6098 11.2045 16.1705L4.4545 9.4205C4.01517 8.98116 4.01517 8.26884 4.4545 7.8295Z" fill="%23C4C4CC"/></svg>');
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-size: 24px;
+      }
     }
 
     .ingredientInput {
@@ -47,6 +135,9 @@ export const Container = styled.div`
     }
 
     .buttons {
+      display: flex;
+      gap: 2rem;
+      
       button {
         width: 100%;
         margin: 1rem auto 3.3125rem;
@@ -56,9 +147,9 @@ export const Container = styled.div`
     @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
       width: 90vw;
       max-width: 1120px;
-      gap: 2rem;
 
       display: flex;
+      flex-direction: row;
       flex-wrap: wrap;
       gap: 2rem;
       justify-content: space-between;
@@ -99,8 +190,27 @@ export const Container = styled.div`
       }
 
       .categoryInput {
-        max-width: 364px;
+        width: 364px;
         flex: 1 1 auto;
+
+        select {
+          background-color: ${({ theme }) => theme.COLORS.DARK_900};
+          border-radius: 0.3125rem;
+          height: 3rem;
+          width: 100%;
+          gap: 1rem;
+
+          outline: none;
+          border: none;
+          padding: 1rem;
+
+          font-family: Roboto;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 160%;
+          color: ${({ theme }) => theme.COLORS.LIGHT_400};
+        }
       }
 
       .ingredientInput {
@@ -128,10 +238,8 @@ export const Container = styled.div`
 
       .buttons {
         display: flex;
-        flex-direction: row;
         gap: 2rem;
-
-        border: 2px dashed green;
+        margin: 2rem 0 2rem auto;
 
         button {
           width: fit-content;

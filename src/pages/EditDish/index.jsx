@@ -22,7 +22,10 @@ export function EditDish() {
         <h1 className="title">Novo prato</h1>
         <div className="imgInput">
           <p>Imagem do prato</p>
-          <Input icon={PiUploadSimpleBold} placeholder="Selecione imagem" />
+          <label for="imgUpload" className="custom-file-upload">
+            <PiUploadSimpleBold /> Selecione imagem
+          </label>
+          <input type="file" id="imgUpload" />
         </div>
         <div className="nameInput">
           <p>Nome</p>
@@ -30,7 +33,12 @@ export function EditDish() {
         </div>
         <div className="categoryInput">
           <p>Categoria</p>
-          <Input type="text" placeholder="Bebidas" />
+          {/* <Input type="text" placeholder="Bebidas" /> */}
+          <select name="categories">
+            <option value="meal">Refeições</option>
+            <option value="main-dishes">Pratos Principais</option>
+            <option value="drinks">Bebidas</option>
+          </select>
         </div>
         <div className="ingredientInput">
           <p>Ingredientes</p>
