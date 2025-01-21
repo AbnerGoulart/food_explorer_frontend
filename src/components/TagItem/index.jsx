@@ -1,5 +1,4 @@
 import { Container } from "./styles";
-import { Input } from "../Input";
 import { FiX, FiPlus } from 'react-icons/fi'
 
 //Estou declarando uma função de nome TagItem que recebe as 
