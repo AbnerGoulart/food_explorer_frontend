@@ -19,7 +19,7 @@ export function EditDish() {
             <FaChevronLeft /> Voltar
           </ButtonText>
         </Link>
-        <h1 className="title">Novo prato</h1>
+        <h1 className="title">Editar prato</h1>
         <div className="imgInput">
           <p>Imagem do prato</p>
           <label for="imgUpload" className="custom-file-upload">
