@@ -7,12 +7,50 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  gap: 2rem;
 
   .edit-wrapper {
+    margin-top: 0;
     input,
     textarea {
       width: 100%;
+      height: 80%;
+    }
+
+    p {
+      font-family: Roboto;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .ingredientInput {
+      .ingredients {
+        width: 100%;
+        background-color: ${({ theme }) => theme.COLORS.DARK_900};
+        border-radius: 0.3125rem;
+        height: auto;
+        gap: 1rem;
+
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+        padding: 8px;
+      }
+    }
+
+    .descriptionInput {
+      width: 100%;
+      height: 140px;
+    }
+
+    .buttons {
+      button {
+        width: 100%;
+        margin: 1rem auto 3.3125rem;
+      }
     }
 
     @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
@@ -36,7 +74,7 @@ export const Container = styled.div`
       }
 
       .backButton {
-        display: block;
+        display: flex;
         width: 100%;
         font-family: Poppins;
         font-size: 24px;
@@ -68,6 +106,19 @@ export const Container = styled.div`
       .ingredientInput {
         max-width: 837px;
         flex: 1 1 auto;
+
+        .ingredients {
+          background-color: ${({ theme }) => theme.COLORS.DARK_900};
+          border-radius: 0.3125rem;
+          height: auto;
+          gap: 1rem;
+
+          display: flex;
+          align-items: center;
+          margin-bottom: 1rem;
+          flex-wrap: wrap;
+          padding: 8px;
+        }
       }
 
       .priceInput {
@@ -75,28 +126,18 @@ export const Container = styled.div`
         flex: 1 1 auto;
       }
 
-      .descriptionInput {
-        width: 100%;
-        height: 172px;
+      .buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
 
-        textarea {
-          height: 100%;
+        border: 2px dashed green;
+
+        button {
+          width: fit-content;
+          padding: 12px 24px;
         }
       }
-    }
-  }
-
-  .buttons {
-    display: flex;
-    gap: 2rem;
-
-    button {
-      width: fit-content;
-      padding: 12px 24px;
-    }
-
-    @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
-      margin: 2rem 0 2rem auto;
     }
   }
 `;

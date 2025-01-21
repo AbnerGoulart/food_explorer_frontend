@@ -29,6 +29,11 @@ export const StyledSwiper = styled.div`
     }
   }
 
+  .swiper-pagination {
+    position: initial;
+    margin-top: 1rem;
+  }
+
   .swiper-pagination-bullet {
     background-color: ${({theme}) => theme.COLORS.LIGHT_500};
     opacity: 0.7;
