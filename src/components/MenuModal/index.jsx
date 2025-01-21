@@ -9,17 +9,19 @@ import { useContext, useState } from "react";
 import { Button } from "../Button";
 import { PiXBold, PiMagnifyingGlass } from "react-icons/pi";
 import { Input } from "../Input";
+import { useNavigate } from "react-router-dom";
 
 export function MenuModal({toggleMenu}) {
   const { signOut, type } = useContext(AuthContext);
+  const navigate = useNavigate('')
 
   async function handleSignOut() {
     await signOut();
   }
 
-  // const toggleMenu = () => {
-  //   setIsMenuOpen((prevState) => !prevState);
-  // };
+  const handleNewDish = () => {
+    navigate(`/new`)
+  }
 
   return (
     <BackgroundBlur>
@@ -34,7 +36,7 @@ export function MenuModal({toggleMenu}) {
           <Input icon={PiMagnifyingGlass} type="text" placeholder="Busque por pratos ou ingredientes"/>
           {type === "admin" ? (
             <>
-              <ButtonText>
+              <ButtonText onClick={handleNewDish}>
                 Novo Prato
               </ButtonText>
               <ButtonText onClick={handleSignOut}>
