@@ -54,7 +54,7 @@ export function Card({ title, img, price, id }) {
   };
 
   const handleEdit = () => {
-    navigate(`/details/${id}`)
+    navigate(`/edit`)
   }
 
   const toggleLike = () => {setIsLike((prevState) => !prevState)}
