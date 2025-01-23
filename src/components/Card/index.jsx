@@ -58,6 +58,7 @@ export function Card({ title, img, price, id }) {
   }
 
   const toggleLike = () => {setIsLike((prevState) => !prevState)}
+  
   const renderHeart = () => {
     return isLike === true ? <PiHeartFill onClick={toggleLike}/> : <PiHeart onClick={toggleLike}/>
   }

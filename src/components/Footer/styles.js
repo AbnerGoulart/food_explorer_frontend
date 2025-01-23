@@ -22,7 +22,7 @@ export const Container = styled.div`
     padding: 24px 123px;
     justify-content: space-between;
 
-    .wrapper {
+    .footer-wrapper {
       display: flex;
       justify-content: space-between;
       align-items: center;

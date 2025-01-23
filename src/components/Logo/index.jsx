@@ -1,8 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { Container } from "./styles";
+import { AuthContext } from "../../contexts/AuthContext";
+import { useContext } from "react";
 
-export function Logo ({ size = "2rem", isAdmin }){
+export function Logo ({ size = "2rem", head }){
   const navigate = useNavigate()
+  const {type} = useContext(AuthContext)
 
   function returnToHome(){
     navigate('/')
@@ -11,7 +14,7 @@ export function Logo ({ size = "2rem", isAdmin }){
     <Container size={size} onClick={returnToHome}>
       <img src="../../../logo.svg" alt="logo" />
       <h1>food explorer</h1>
-      {isAdmin ? <span>admin</span> : null}
+      {type === "admin" && head ? <span>admin</span> : null}
     </Container>
   )
 }

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.div`
   display: flex;
@@ -6,14 +7,15 @@ export const Container = styled.div`
   align-items: center;
   gap: 0.65rem;
   position: relative;
-  width: 220px;
+  width: 300px;
   height: 68px;
   cursor: pointer;
+  margin: 0 auto;
 
   h1 {
     font-size: ${(props) => props.size};
     color: ${({ theme }) => theme.COLORS.LIGTH_100};
-    font-family: 'Roboto';
+    font-family: "Roboto";
   }
 
   img {
@@ -25,10 +27,15 @@ export const Container = styled.div`
     font-size: 12px;
     font-weight: 400;
     line-height: 160%;
-    color: ${({theme}) => theme.COLORS.CAKE_200};
+    color: ${({ theme }) => theme.COLORS.CAKE_200};
+  }
 
-    position: absolute;
-    bottom: 0;
-    right: 6px;
+  @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
+    width: 220px;
+    span {
+      position: absolute;
+      bottom: 0;
+      right: 6px;
+    }
   }
 `;
