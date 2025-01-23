@@ -1,4 +1,4 @@
-import { Container } from "./styles"; 
+import { Container } from "./styles";
 import { Link } from "react-router-dom";
 import { Button } from "../Button";
 import { ButtonText } from "../ButtonText";
@@ -6,19 +6,58 @@ import { PiUploadSimpleBold } from "react-icons/pi";
 import { Input } from "../Input";
 import { FaChevronLeft } from "react-icons/fa";
 import { TagItem } from "../TagItem";
+import { useState } from "react";
 
 // Estou declarando um componente denominado DishForm que recebe como prop:
 // - isEditable
-export function DishForm({isEditable}) {
+
+// Neste componente, temos a redenderização dos componentes TagItem
+
+export function DishForm({ isEditable, }) {
+  const initialTags = ["Pão", "Manteiga", "Queijo", "Mussarela", "Tomate"];
+
+  const [tags, setTags] = useState(initialTags);
+  const [newTag, setNewTag] = useState("");
+
+  const handleDelete = (deleted) => {
+    setTags(tags.filter((t) => t !== deleted));
+  };
+
+  const createTag = () => {
+    if (newTag.length > 0) {
+      setTags((prevState) => [...prevState, newTag]);
+      setNewTag("");
+    }
+  };
+
+  const tagItems = tags.map((tag, index) => (
+    <TagItem
+      key={index}
+      value={tag}
+      isNew={false}
+      handleDelete={handleDelete}
+    />
+  ));
+
+  const keyDown = (event) => {
+    if (event.key === "Enter") {
+      createTag();
+    }
+  };
+
   return (
     <Container className="edit-wrapper">
-      <div className="edit-wrapper">
+      <div className="form-wrapper">
         <Link to="/">
           <ButtonText className="backButton" size={24}>
             <FaChevronLeft /> Voltar
           </ButtonText>
         </Link>
-        {isEditable ? <h1 className="title">Editar prato</h1> : <h1 className="title">Novo prato</h1>}
+        {isEditable ? (
+          <h1 className="title">Editar prato</h1>
+        ) : (
+          <h1 className="title">Novo prato</h1>
+        )}
         <div className="imgInput">
           <p>Imagem do prato</p>
           <label for="imgUpload" className="custom-file-upload">
@@ -41,9 +80,15 @@ export function DishForm({isEditable}) {
         </div>
         <div className="ingredientInput">
           <p>Ingredientes</p>
-          <div className="ingredients">
-            <TagItem value="Pão" isNew={false} />
-            <TagItem placeholder="Adicionar" isNew={true} />
+          <div className="ingredients" onKeyDown={keyDown}>
+            {tagItems}
+            <TagItem
+              placeholder="Adicionar"
+              isNew={true}
+              createTag={createTag}
+              setNewTag={setNewTag}
+              newTag={newTag}
+            />
           </div>
         </div>
         <div className="priceInput">
