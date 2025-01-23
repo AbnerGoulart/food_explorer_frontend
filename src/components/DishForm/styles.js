@@ -8,10 +8,11 @@ export const Container = styled.div`
   justify-content: center;
   min-height: 100vh;
 
-  .edit-wrapper {
+  .form-wrapper {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    width: 90vw;
 
     .backButton {
       padding: 0;
@@ -83,7 +84,7 @@ export const Container = styled.div`
     }
 
     .categoryInput {
-      width: 364px;
+      max-width: 364px;
       flex: 1 1 auto;
       margin-bottom: 24px;
 
@@ -214,7 +215,8 @@ export const Container = styled.div`
       }
 
       .ingredientInput {
-        max-width: 837px;
+        min-width: 817px;
+        min-height: 48px;
         flex: 1 1 auto;
 
         .ingredients {
@@ -222,6 +224,7 @@ export const Container = styled.div`
           border-radius: 0.3125rem;
           height: auto;
           gap: 1rem;
+          max-width: 817px;
 
           display: flex;
           align-items: center;
