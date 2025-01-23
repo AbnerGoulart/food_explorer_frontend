@@ -84,7 +84,7 @@ export const Container = styled.div`
     }
 
     .categoryInput {
-      max-width: 364px;
+      max-width: 100%;
       flex: 1 1 auto;
       margin-bottom: 24px;
 

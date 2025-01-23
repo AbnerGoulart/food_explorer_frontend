@@ -1,4 +1,3 @@
-import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 import { Container, MenuIcon, ReceiptIcon, Counter } from "./styles";
 import { Logo } from "../Logo";
 import { MenuModal } from "../MenuModal";
@@ -9,11 +8,13 @@ import { PiSignOut, PiMagnifyingGlass } from "react-icons/pi";
 import { Button } from "../Button";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Input } from "../Input";
+import { useNavigate } from "react-router-dom";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { count } = useContext(CartContext);
-  const { signOut } = useContext(AuthContext);
+  const { signOut, type } = useContext(AuthContext);
+  const navigate = useNavigate()
 
   async function handleSignOut() {
     await signOut();
@@ -27,12 +28,16 @@ export function Header() {
     return isMenuOpen === true ? <MenuModal toggleMenu={toggleMenu} /> : null;
   };
 
+  const handleNewDish = () => {
+    navigate("/new")
+  }
+
   return (
     <Container>
       <div className="wrapper">
         {renderMenuModal()}
         <MenuIcon onClick={toggleMenu} />
-        <Logo size="1.5rem" />
+        <Logo size="1.5rem" head={true} />
         <div className="input">
           <Input
             icon={PiMagnifyingGlass}
@@ -41,14 +46,14 @@ export function Header() {
           />
         </div>
         <div className="button">
-          <Button icon={<ReceiptIcon />} title={`Pedidos (${count})`} />
+          {type === "admin" ? <Button title="Novo prato" onClick={handleNewDish}/> : <Button icon={<ReceiptIcon />} title={`Pedidos (${count})`} />}
         </div>
-        <div className="receiptContainer">
+        { type !== "admin" ? <div className="receiptContainer">
           <ReceiptIcon />
           <Counter>
             <span>{count}</span>
           </Counter>
-        </div>
+        </div> : null}
         <div className="signout">
           <ButtonText onClick={handleSignOut}>
             <PiSignOut />
