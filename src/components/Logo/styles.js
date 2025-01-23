@@ -8,6 +8,7 @@ export const Container = styled.div`
   position: relative;
   width: 220px;
   height: 68px;
+  cursor: pointer;
 
   h1 {
     font-size: ${(props) => props.size};
