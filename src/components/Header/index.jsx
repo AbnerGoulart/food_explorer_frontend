@@ -32,7 +32,7 @@ export function Header() {
       <div className="wrapper">
         {renderMenuModal()}
         <MenuIcon onClick={toggleMenu} />
-        <Logo size="1.5rem" />
+        <Logo size="1.5rem" isAdmin={true}/>
         <div className="input">
           <Input
             icon={PiMagnifyingGlass}

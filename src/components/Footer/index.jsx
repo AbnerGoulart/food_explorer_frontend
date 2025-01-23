@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <Container>
       <div className="wrapper">
-        <Logo size="1.2rem" />
+        <Logo size="1.2rem" isAdmin={false} />
         <div>
           <p>&copy; 2024 - Todos os direitos reservados</p>
         </div>
