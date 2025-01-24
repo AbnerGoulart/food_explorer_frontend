@@ -71,7 +71,6 @@ export function DishForm({ isEditable, }) {
         </div>
         <div className="categoryInput">
           <p>Categoria</p>
-          {/* <Input type="text" placeholder="Bebidas" /> */}
           <select name="categories">
             <option value="meal">Refeições</option>
             <option value="main-dishes">Pratos Principais</option>
@@ -81,7 +80,7 @@ export function DishForm({ isEditable, }) {
         <div className="ingredientInput">
           <p>Ingredientes</p>
           <div className="ingredients" onKeyDown={keyDown}>
-            {tagItems}
+            {isEditable ? tagItems : null}
             <TagItem
               placeholder="Adicionar"
               isNew={true}

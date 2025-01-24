@@ -32,8 +32,10 @@ export function SignIn() {
 
   return (
     <Container className="app">
-      <Logo />
-      <div className="wrapper">
+      <div className="logo">
+        <Logo />
+      </div>
+      <div className="signin-wrapper">
         <h1>Faça login</h1>
         <div className="content" onKeyDown={keyDown}>
           <p>Email</p>

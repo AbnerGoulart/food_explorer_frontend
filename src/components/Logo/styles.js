@@ -31,7 +31,7 @@ export const Container = styled.div`
   }
 
   @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
-    width: 220px;
+    width: 300px;
     span {
       position: absolute;
       bottom: 0;
