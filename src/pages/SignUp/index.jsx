@@ -8,7 +8,9 @@ import { Input } from "../../components/Input";
 export function SignUp() {
   return (
     <Container className="app">
-      <Logo />
+      <div className="logo">
+        <Logo />
+      </div>
       <div className="wrapper">
         <h1>Crie sua conta</h1>
         <div className="content">

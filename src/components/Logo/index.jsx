@@ -10,6 +10,7 @@ export function Logo ({ size = "2rem", head }){
   function returnToHome(){
     navigate('/')
   } 
+  
   return (
     <Container size={size} onClick={returnToHome}>
       <img src="../../../logo.svg" alt="logo" />

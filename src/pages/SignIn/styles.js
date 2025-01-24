@@ -12,9 +12,13 @@ export const Container = styled.div`
   @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
     flex-direction: row;
     gap: 16rem;
+
+    .logo {
+      margin: 0;
+    }
   }
 
-  .wrapper {
+  .signin-wrapper {
     margin-top: 73px;
 
     h1 {
