@@ -29,6 +29,10 @@ export const Container = styled.div`
       gap: 2rem;
       width: 1120px;
       margin: 0 auto;
+
+      .logo {
+        margin: 0;
+      }
     }
   }
 `;
