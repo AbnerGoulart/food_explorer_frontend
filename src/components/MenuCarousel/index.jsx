@@ -14,9 +14,9 @@ export function MenuCarousel({ title, items }) {
   const renderCards = () => {
     const cards = [];
     items &&
-      items.map((item) => {
+      items.map((item, index) => {
         cards.push(
-          <SwiperSlide key={item.id}>
+          <SwiperSlide key={item.id || index}>
             <Card
               title={item.title}
               img={item.photo}
@@ -37,12 +37,12 @@ export function MenuCarousel({ title, items }) {
         <Swiper
           modules={[Pagination, Navigation]}
           spaceBetween={27}
-          slidesPerView={1}
+          slidesPerView={2}
           navigation
           pagination={{ clickable: true }}
           breakpoints={{
             640: {
-              slidesPerView: 1,
+              slidesPerView: 2,
               spaceBetween: 15,
             },
             768: {
