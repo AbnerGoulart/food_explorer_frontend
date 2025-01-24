@@ -26,16 +26,17 @@ export const Container = styled.div`
     font-family: Roboto;
     font-size: 12px;
     font-weight: 400;
-    line-height: 160%;
     color: ${({ theme }) => theme.COLORS.CAKE_200};
   }
 
   @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
-    width: 300px;
+    width: fit-content;
+    justify-content: flex-start;
+
     span {
       position: absolute;
       bottom: 0;
-      right: 6px;
+      right: 0;
     }
   }
 `;
