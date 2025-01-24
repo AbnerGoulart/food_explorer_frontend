@@ -12,7 +12,6 @@ export const Container = styled.div`
   color: ${({ theme }) => theme.COLORS.LIGHT_300};
   background-color: ${({ theme }) => theme.COLORS.DARK_900};
   border-radius: 0.3125rem;
-  gap: 0.5rem;
 
   input {
     border: none;

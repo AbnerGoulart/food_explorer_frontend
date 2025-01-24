@@ -43,7 +43,7 @@ export function MenuCarousel({ title, items }) {
           breakpoints={{
             640: {
               slidesPerView: 2,
-              spaceBetween: 15,
+              spaceBetween: 20,
             },
             768: {
               slidesPerView: 2,
