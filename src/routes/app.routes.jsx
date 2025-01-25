@@ -13,7 +13,7 @@ export function AppRoutes(){
       <Route path='/details/:id' element={<Details />} />
       <Route path='/menu' element={<Menu />} />
       <Route path='/new' element={<NewDish />} />
-      <Route path='/edit' element={<EditDish />} />
+      <Route path='/edit/:id' element={<EditDish />} />
     </Routes>
   )
 }

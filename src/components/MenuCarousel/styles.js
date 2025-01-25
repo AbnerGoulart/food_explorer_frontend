@@ -16,6 +16,10 @@ export const StyledSwiper = styled.div`
     height: auto;
   }
 
+  .swiper-wrapper {
+    gap: 4rem;
+  }
+
   .swiper-slide {
     display: flex;
     justify-content: center;
@@ -70,6 +74,10 @@ export const StyledSwiper = styled.div`
 
       color: ${({theme}) => theme.COLORS.LIGHT_100};
       transition: 0.2s;
+
+      .swiper-slide {
+        margin-right: 1.5rem;
+      }
 
       &::after {
         font-size: 32px;

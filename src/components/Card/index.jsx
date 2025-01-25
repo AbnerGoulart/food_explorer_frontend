@@ -1,7 +1,7 @@
 import { Container } from "./styles";
 import { Button } from "../Button";
 import { ButtonText } from "../ButtonText";
-import { PiPlus, PiMinus, PiHeart, PiHeartFill, PiPencil } from "react-icons/pi";
+import { PiPlus, PiMinus, PiHeart, PiHeartFill, PiPencilSimple } from "react-icons/pi";
 import { useReducer, useContext, useState } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import { DishesContext } from "../../contexts/DishesContext";
@@ -67,7 +67,7 @@ export function Card({ title, img, price, id }) {
     <Container>
       <div className="action">
         <ButtonText>
-          {type === "admin" ? <PiPencil onClick={handleEdit}/> : renderHeart()}
+          {type === "admin" ? <PiPencilSimple onClick={handleEdit}/> : renderHeart()}
         </ButtonText>
       </div>
       <Link to={`details/${id}`} >

@@ -9,14 +9,35 @@ import { TagItem } from "../TagItem";
 import { useState } from "react";
 
 // Estou declarando um componente denominado DishForm que recebe como prop:
-// - isEditable
+// - isEditable,
+  // title,
+  // setTitle,
+  // session,
+  // setSession,
+  // description,
+  // setDescription,
+  // price,
+  // setPrice,
 
+// Todas essas Props estão sendo passadas pelas páginas /new ou /edit
 // Neste componente, temos a redenderização dos componentes TagItem
 
-export function DishForm({ isEditable, }) {
-  const initialTags = ["Pão", "Manteiga", "Queijo", "Mussarela", "Tomate"];
+export function DishForm({
+  isEditable,
+  title,
+  tags,
+  setTags,
+  setTitle,
+  session,
+  setSession,
+  description,
+  setDescription,
+  price,
+  setPrice,
+}) {
+  // const initialTags = ["Pão", "Manteiga", "Queijo", "Mussarela", "Tomate"];
 
-  const [tags, setTags] = useState(initialTags);
+  // const [tags, setTags] = useState(initialTags);
   const [newTag, setNewTag] = useState("");
 
   const handleDelete = (deleted) => {
@@ -45,6 +66,14 @@ export function DishForm({ isEditable, }) {
     }
   };
 
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('pt-BR',{
+      style: 'currency',
+      currency: 'BRL',
+      minimumFractionDigits: 2,
+    }).format(price)
+  }
+
   return (
     <Container className="edit-wrapper">
       <div className="form-wrapper">
@@ -67,7 +96,12 @@ export function DishForm({ isEditable, }) {
         </div>
         <div className="nameInput">
           <p>Nome</p>
-          <Input type="text" placeholder="Ex: Salada Ceasar" />
+          <Input
+            type="text"
+            placeholder="Ex: Salada Ceasar"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
         </div>
         <div className="categoryInput">
           <p>Categoria</p>
@@ -92,11 +126,21 @@ export function DishForm({ isEditable, }) {
         </div>
         <div className="priceInput">
           <p>Preço</p>
-          <Input type="text" placeholder="R$ 00,00" />
+          <Input
+            type="text"
+            placeholder="R$ 00,00"
+            value={formatPrice(price)}
+            onChange={(e) => setPrice(e.target.value)}
+          />
         </div>
         <div className="descriptionInput">
           <p>Descrição</p>
-          <textarea placeholder="Fale brevemente sobre o prato, seus ingredientes e composição "></textarea>
+          <textarea
+            placeholder="Fale brevemente sobre o prato, seus ingredientes e composição "
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
+          >
+          </textarea>
         </div>
         <div className="buttons">
           {isEditable ? <Button title="Excluir prato" /> : null}
