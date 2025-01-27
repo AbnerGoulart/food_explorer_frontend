@@ -28,16 +28,16 @@ export function DishForm({
   tags,
   setTags,
   setTitle,
-  session,
-  setSession,
+  section,
+  setSection,
   description,
   setDescription,
   price,
   setPrice,
+  photo,
+  setPhoto,
+  handleNewDish,
 }) {
-  // const initialTags = ["Pão", "Manteiga", "Queijo", "Mussarela", "Tomate"];
-
-  // const [tags, setTags] = useState(initialTags);
   const [newTag, setNewTag] = useState("");
 
   const handleDelete = (deleted) => {
@@ -51,14 +51,18 @@ export function DishForm({
     }
   };
 
-  const tagItems = tags.map((tag, index) => (
-    <TagItem
-      key={index}
-      value={tag}
-      isNew={false}
-      handleDelete={handleDelete}
-    />
-  ));
+  let tagItems = [""]
+
+  if(tags) {
+    tagItems = tags.map((tag, index) => (
+      <TagItem
+        key={index}
+        value={tag}
+        isNew={false}
+        handleDelete={handleDelete}
+      />
+    ));
+  }
 
   const keyDown = (event) => {
     if (event.key === "Enter") {
@@ -105,9 +109,10 @@ export function DishForm({
         </div>
         <div className="categoryInput">
           <p>Categoria</p>
-          <select name="categories">
-            <option value="meal">Refeições</option>
-            <option value="main-dishes">Pratos Principais</option>
+          <select name="categories" value={section} onChange={e => setSection(e.target.value)}>
+          <option value="" selected="selected">Escolha uma categoria</option>
+            <option value="meals">Refeições</option>
+            <option value="main_dishes">Pratos Principais</option>
             <option value="drinks">Bebidas</option>
           </select>
         </div>
@@ -144,7 +149,10 @@ export function DishForm({
         </div>
         <div className="buttons">
           {isEditable ? <Button title="Excluir prato" /> : null}
-          <Button title="Salvar alterações" />
+          <Button 
+            title="Salvar alterações"
+            onClick={handleNewDish} 
+          />
         </div>
       </div>
     </Container>

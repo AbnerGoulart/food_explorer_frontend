@@ -30,7 +30,7 @@ const formatPrice = (price) => {
   }).format(price)
 }
 
-export function Card({ title, img, price, id }) {
+export function Card({ title, img, price, id, description }) {
   const [state, dispatch] = useReducer(reducer, initializeState);
   const [isLike, setIsLike] = useState(false)
   const { items, setItems } = useContext(CartContext);
@@ -75,7 +75,7 @@ export function Card({ title, img, price, id }) {
       </Link>
       <div className="description">
         <h3>{title}</h3>
-        <p>Este é um exemplo de descrição que posteriormente deverá ser importado do backend</p>
+        <p>{description}</p>
       </div>
       <span className="price">{formatPrice(price)}</span>
       <div className="amount">
