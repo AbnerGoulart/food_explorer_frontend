@@ -15,20 +15,10 @@ export function NewDish() {
 
   const navigate = useNavigate()
   
-
-
   async function handleNewDish() {
-    console.log()
-    if (!title) {
-      alert("Erro: Insira o nome do prato")
-    }
-
-    // if (!price) {
-    //   alert("Erro: Inserção de preço obrigatória!")
-    // }
-
-    if (!description) {
-      alert("Erro: Forneça uam breve descrição do seu prato")
+    if (!title || !price || !description) {
+      alert("Erro: Preencha os campos obrigatórios!")
+      return
     }
 
     try {

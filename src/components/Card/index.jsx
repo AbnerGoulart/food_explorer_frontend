@@ -54,7 +54,7 @@ export function Card({ title, img, price, id, description }) {
   };
 
   const handleEdit = () => {
-    navigate(`/edit`)
+    navigate(`/edit/${id}`)
   }
 
   const toggleLike = () => {setIsLike((prevState) => !prevState)}
@@ -70,7 +70,7 @@ export function Card({ title, img, price, id, description }) {
           {type === "admin" ? <PiPencilSimple onClick={handleEdit}/> : renderHeart()}
         </ButtonText>
       </div>
-      <Link to={`details/${id}`} >
+      <Link to={`/details/${id}`} >
         <img src={img} alt={title} />
       </Link>
       <div className="description">
