@@ -6,14 +6,30 @@ import { Logo } from "../../components/Logo";
 import { Container } from "./styles";
 import { Input } from "../../components/Input";
 import { api } from "../../api";
+import theme from "../../styles/theme";
 
 export function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorPassword, setErrorPassword] = useState("");
+  const [errors, setErrors] = useState({
+    name: false,
+    email: false,
+    password: false,
+  });
 
   const navigate = useNavigate();
+
+  const keyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSignUp();
+    }
+  };
+
+  const styleError = (field) => ({
+    border: errors[field] ? `2px solid ${theme.COLORS.TOMATO_200}` : "none",
+  });
 
   const handleChangeSenha = (event) => {
     const passwordEntered = event.target.value;
@@ -21,35 +37,32 @@ export function SignUp() {
 
     if (passwordEntered.length < 6) {
       setErrorPassword("A senha deve ter pelo menos 6 caracteres.");
-    } else {
-      setErrorPassword("");
+      return;
     }
-  };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (password.length >= 6) {
-      alert("Conta criada com sucesso!");
-    } else {
-      alert("Corrija os erros antes de criar sua conta.");
-    }
+    setErrorPassword("");
   };
 
   const handleSignUp = () => {
-    if (!name || !email || !password) {
-      alert("Preencha todos os campos");
+    const newErrors = {
+      name: !name,
+      email: !email,
+      password: !password || password.length < 6,
+    };
+
+    setErrors(newErrors);
+
+    if (newErrors.name || newErrors.email || newErrors.password) {
+      alert("Preencha todos os campos corretamente.");
+      return;
     }
 
     api
-      .post("/signup", {
-        name: name,
-        email: email,
-        password: password,
-      })
+      .post("/signup", { name, email, password })
       .then(() => {
         navigate("/");
       })
-      .catch((error) => {
+      .catch(() => {
         alert("Erro ao cadastrar");
       });
   };
@@ -59,40 +72,32 @@ export function SignUp() {
       <div className="logo">
         <Logo />
       </div>
-      <div className="wrapper">
+      <div className="wrapper" onKeyDown={keyDown}>
         <h1>Crie sua conta</h1>
-        <form className="content" onSubmit={handleSubmit}>
+        <form className="content">
           <p>Seu nome</p>
           <Input
             type="text"
             placeholder="Exemplo: Maria Alice"
             onChange={(e) => setName(e.target.value)}
-            required
+            style={styleError("name")}
           />
           <p>Email</p>
           <Input
             type="email"
             placeholder="exemplo@email.com"
             onChange={(e) => setEmail(e.target.value)}
-            required
+            style={styleError("email")}
           />
           <p>Senha</p>
           <Input
             type="password"
-            placeholder="No mínimo 6 caracteres"
+            placeholder={errorPassword || "No mínimo 6 caracteres"}
             value={password}
             onChange={handleChangeSenha}
-            required
+            style={styleError("password")}
           />
-          {errorPassword && (
-            <p 
-              className="error" 
-              style={{ color: "red" }}
-            >
-              {errorPassword}
-            </p>
-          )}
-          <Button title="Criar conta" type="submit" onClick={handleSignUp} />
+          <Button title="Criar conta" type="button" onClick={handleSignUp} />
           <Link to="/">
             <ButtonText>Já tenho uma conta</ButtonText>
           </Link>
