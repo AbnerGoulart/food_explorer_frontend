@@ -110,10 +110,10 @@ export function DishForm({
         <div className="categoryInput">
           <p>Categoria</p>
           <select name="categories" value={section} onChange={e => setSection(e.target.value)}>
-          <option value="" selected="selected">Escolha uma categoria</option>
-            <option value="meals">Refeições</option>
-            <option value="main_dishes">Pratos Principais</option>
-            <option value="drinks">Bebidas</option>
+          <option value="" defaultValue="selected">Escolha uma categoria</option>
+            <option value="meals">-- Refeições</option>
+            <option value="main_dishes">-- Pratos Principais</option>
+            <option value="drinks">-- Bebidas</option>
           </select>
         </div>
         <div className="ingredientInput">

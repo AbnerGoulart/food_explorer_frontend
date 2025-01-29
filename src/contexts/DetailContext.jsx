@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 export const DetailContext = createContext()
 
 export function DetailProvider({ children }) {
+  // o hook useParams está capturando o valor do parâmetro id da URL da página
   const { id } = useParams()
   const [dish, setDish] = useState({})
 

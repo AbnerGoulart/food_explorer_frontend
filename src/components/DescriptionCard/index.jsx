@@ -30,7 +30,7 @@ export function DescriptionCard() {
         </ButtonText>
       </Link>
       <div className="wrapper">
-        <img src={dish.photo} alt="" />
+        <img src={`/${dish.photo}`} alt="" />
         <div className="description">
           <h1>{dish.title}</h1>
           <p>{dish.description}</p>

@@ -31,11 +31,17 @@ export const Container = styled.div`
     }
 
     button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto 2rem;
-      }
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 2rem;
+    }
+
+    .error {
+      border: 2px solid red;
+      color: white;
+      margin-top: 0;
+    }
 
     @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
       background-color: ${({ theme }) => theme.COLORS.DARK_700};
@@ -55,4 +61,4 @@ export const Container = styled.div`
       }
     }
   }
-`
+`;
