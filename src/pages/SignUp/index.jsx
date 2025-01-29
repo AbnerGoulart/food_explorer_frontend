@@ -1,33 +1,70 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { ButtonText } from "../../components/ButtonText";
 import { Logo } from "../../components/Logo";
 import { Container } from "./styles";
 import { Input } from "../../components/Input";
+import { api } from "../../api";
+import theme from "../../styles/theme";
 
 export function SignUp() {
-  const [senha, setSenha] = useState("");
-  const [erroSenha, setErroSenha] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorPassword, setErrorPassword] = useState("");
+  const [errors, setErrors] = useState({
+    name: false,
+    email: false,
+    password: false,
+  });
 
-  const handleChangeSenha = (event) => {
-    const senhaDigitada = event.target.value;
-    setSenha(senhaDigitada);
+  const navigate = useNavigate();
 
-    if (senhaDigitada.length < 6) {
-      setErroSenha("A senha deve ter pelo menos 6 caracteres.");
-    } else {
-      setErroSenha("");
+  const keyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSignUp();
     }
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (senha.length >= 6) {
-      alert("Conta criada com sucesso!");
-    } else {
-      alert("Corrija os erros antes de criar sua conta.");
+  const styleError = (field) => ({
+    border: errors[field] ? `2px solid ${theme.COLORS.TOMATO_200}` : "none",
+  });
+
+  const handleChangeSenha = (event) => {
+    const passwordEntered = event.target.value;
+    setPassword(passwordEntered);
+
+    if (passwordEntered.length < 6) {
+      setErrorPassword("A senha deve ter pelo menos 6 caracteres.");
+      return;
     }
+
+    setErrorPassword("");
+  };
+
+  const handleSignUp = () => {
+    const newErrors = {
+      name: !name,
+      email: !email,
+      password: !password || password.length < 6,
+    };
+
+    setErrors(newErrors);
+
+    if (newErrors.name || newErrors.email || newErrors.password) {
+      alert("Preencha todos os campos corretamente.");
+      return;
+    }
+
+    api
+      .post("/signup", { name, email, password })
+      .then(() => {
+        navigate("/");
+      })
+      .catch(() => {
+        alert("Erro ao cadastrar");
+      });
   };
 
   return (
@@ -35,23 +72,32 @@ export function SignUp() {
       <div className="logo">
         <Logo />
       </div>
-      <div className="wrapper">
+      <div className="wrapper" onKeyDown={keyDown}>
         <h1>Crie sua conta</h1>
-        <form className="content" onSubmit={handleSubmit}>
+        <form className="content">
           <p>Seu nome</p>
-          <Input type="text" placeholder="Exemplo: Maria Alice" required />
+          <Input
+            type="text"
+            placeholder="Exemplo: Maria Alice"
+            onChange={(e) => setName(e.target.value)}
+            style={styleError("name")}
+          />
           <p>Email</p>
-          <Input type="email" placeholder="exemplo@email.com" required />
+          <Input
+            type="email"
+            placeholder="exemplo@email.com"
+            onChange={(e) => setEmail(e.target.value)}
+            style={styleError("email")}
+          />
           <p>Senha</p>
           <Input
             type="password"
-            placeholder="No mínimo 6 caracteres"
-            value={senha}
+            placeholder={errorPassword || "No mínimo 6 caracteres"}
+            value={password}
             onChange={handleChangeSenha}
-            required
+            style={styleError("password")}
           />
-          {erroSenha && <p className="error" style={{ color: "red" }}>{erroSenha}</p>}
-          <Button title="Criar conta" type="submit" />
+          <Button title="Criar conta" type="button" onClick={handleSignUp} />
           <Link to="/">
             <ButtonText>Já tenho uma conta</ButtonText>
           </Link>

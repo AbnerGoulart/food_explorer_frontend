@@ -37,12 +37,6 @@ export const Container = styled.div`
       margin: 0 auto 2rem;
     }
 
-    .error {
-      border: 2px solid red;
-      color: white;
-      margin-top: 0;
-    }
-
     @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
       background-color: ${({ theme }) => theme.COLORS.DARK_700};
       padding: 4rem;
