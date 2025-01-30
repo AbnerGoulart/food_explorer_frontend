@@ -58,7 +58,7 @@ export function SignUp() {
     }
 
     api
-      .post("/signup", { name, email, password })
+      .post("/register", { name, email, password })
       .then(() => {
         navigate("/");
       })

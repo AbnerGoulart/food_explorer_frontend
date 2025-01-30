@@ -10,14 +10,14 @@ import { useState } from "react";
 
 // Estou declarando um componente denominado DishForm que recebe como prop:
 // - isEditable,
-  // title,
-  // setTitle,
-  // session,
-  // setSession,
-  // description,
-  // setDescription,
-  // price,
-  // setPrice,
+// title,
+// setTitle,
+// session,
+// setSession,
+// description,
+// setDescription,
+// price,
+// setPrice,
 
 // Todas essas Props estão sendo passadas pelas páginas /new ou /edit
 // Neste componente, temos a redenderização dos componentes TagItem
@@ -37,10 +37,12 @@ export function DishForm({
   photo,
   setPhoto,
   handleNewDish,
+  handleRemoveDish,
+  updateDish,
 }) {
   const [newTag, setNewTag] = useState("");
 
-  const handleDelete = (deleted) => {
+  const deleteTag = (deleted) => {
     setTags(tags.filter((t) => t !== deleted));
   };
 
@@ -51,16 +53,11 @@ export function DishForm({
     }
   };
 
-  let tagItems = [""]
+  let tagItems = [""];
 
-  if(tags) {
+  if (tags) {
     tagItems = tags.map((tag, index) => (
-      <TagItem
-        key={index}
-        value={tag}
-        isNew={false}
-        handleDelete={handleDelete}
-      />
+      <TagItem key={index} value={tag} isNew={false} handleDelete={deleteTag} />
     ));
   }
 
@@ -71,12 +68,12 @@ export function DishForm({
   };
 
   const formatPrice = (price) => {
-    return new Intl.NumberFormat('pt-BR',{
-      style: 'currency',
-      currency: 'BRL',
+    return new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
       minimumFractionDigits: 2,
-    }).format(price)
-  }
+    }).format(price);
+  };
 
   return (
     <Container className="edit-wrapper">
@@ -109,8 +106,14 @@ export function DishForm({
         </div>
         <div className="categoryInput">
           <p>Categoria</p>
-          <select name="categories" value={section} onChange={e => setSection(e.target.value)}>
-          <option value="" defaultValue="selected">Escolha uma categoria</option>
+          <select
+            name="categories"
+            value={section}
+            onChange={(e) => setSection(e.target.value)}
+          >
+            <option value="" defaultValue="selected">
+              Escolha uma categoria
+            </option>
             <option value="meals">-- Refeições</option>
             <option value="main_dishes">-- Pratos Principais</option>
             <option value="drinks">-- Bebidas</option>
@@ -144,15 +147,17 @@ export function DishForm({
             placeholder="Fale brevemente sobre o prato, seus ingredientes e composição "
             onChange={(e) => setDescription(e.target.value)}
             value={description}
-          >
-          </textarea>
+          ></textarea>
         </div>
         <div className="buttons">
-          {isEditable ? <Button title="Excluir prato" /> : null}
-          <Button 
-            title="Salvar alterações"
-            onClick={handleNewDish} 
-          />
+          {isEditable ? (
+            <Button title="Excluir prato" onClick={handleRemoveDish} />
+          ) : null}
+          {isEditable ? (
+            <Button title="Salvar alterações" onClick={updateDish} />
+          ) : (
+            <Button title="Salvar alterações" onClick={handleNewDish} />
+          )}
         </div>
       </div>
     </Container>
