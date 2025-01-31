@@ -22,13 +22,22 @@ export function NewDish() {
     }
 
     try {
-      const response = await api.post("/dishes", {
+      let body = {
         title: title,
         section: section,
         description: description,
-        photo: photo,
         price: price,
-      })
+      }
+      
+      if (photo) {
+        const fileUploadForm = new FormData();
+        fileUploadForm.append("photo", photo)
+  
+        await api.post("/dishes/photo", fileUploadForm)
+        body.photo = response.data.photo;
+      }
+      
+      const response = await api.post("/dishes", body)
       navigate("/")
     } catch(error) {
       console.log(error)

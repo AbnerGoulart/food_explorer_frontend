@@ -10,7 +10,7 @@ export function DetailProvider({ children }) {
   const [dish, setDish] = useState({})
 
   const fetchData = () => {
-    api.get(`/dishes/details/${id}`)
+    api.get(`/dishes/${id}`)
     .then(response => {
       setDish(response.data)
     })

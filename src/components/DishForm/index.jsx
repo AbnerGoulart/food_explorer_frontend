@@ -93,7 +93,7 @@ export function DishForm({
           <label for="imgUpload" className="custom-file-upload">
             <PiUploadSimpleBold /> Selecione imagem
           </label>
-          <input type="file" id="imgUpload" />
+          <input type="file" id="imgUpload" onChange={(e) => setPhoto(e.target.files[0])}/>
         </div>
         <div className="nameInput">
           <p>Nome</p>

@@ -6,6 +6,7 @@ import { Button } from "../Button";
 import { Link } from "react-router-dom";
 import { DetailContext } from "../../contexts/DetailContext";
 import { useContext } from "react";
+import { API_BASE_URL } from "../../api";
 
 export function DescriptionCard() {
   const dish = useContext(DetailContext);
@@ -16,7 +17,7 @@ export function DescriptionCard() {
     const tags = [];
     dish.tags &&
       dish.tags.map((tag) => {
-        tags.push(<Tag title={tag.name} key={tag.id} />);
+        tags.push(<Tag title={tag} />);
       });
 
     return tags;
@@ -30,7 +31,7 @@ export function DescriptionCard() {
         </ButtonText>
       </Link>
       <div className="wrapper">
-        <img src={`/${dish.photo}`} alt="" />
+        <img src={`${API_BASE_URL}/files/${dish.photo}`} alt="imagem do prato" />
         <div className="description">
           <h1>{dish.title}</h1>
           <p>{dish.description}</p>

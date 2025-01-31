@@ -24,6 +24,7 @@ export function AuthProvider ({children}){
     function signOut() {
       setUser("");
       localStorage.removeItem('user');
+      localStorage.removeItem('type');
       navigate("/")
     }
 

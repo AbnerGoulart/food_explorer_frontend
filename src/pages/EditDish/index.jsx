@@ -16,12 +16,13 @@ export function EditDish() {
   const navigate = useNavigate()
 
   const fetchData = () => {
-    api.get(`/dishes/details/${id}`).then((response) => {
-      const { title, price, description, tags } = response.data;
+    api.get(`/dishes/${id}`).then((response) => {
+      const { title, section, price, description, tags } = response.data;
       setTitle(title);
+      setSection(section);
       setPrice(price);
       setDescription(description);
-      setTags(tags.map(tag => tag.name));
+      setTags(tags.map(tag => tag));
     });
   };
 
@@ -29,11 +30,11 @@ export function EditDish() {
     fetchData();
   }, []);
 
-  const handleRemoveDish = () => {
+  const handleRemoveDish = async () => {
     const confirm = window.confirm(`confirma a remoção do prato ${title}?`)
 
     if (confirm) {
-      alert(`Prato ${title} deletado`)
+      await api.delete(`/dishes/${id}`)
       navigate("/")
     }
   }
@@ -48,6 +49,7 @@ export function EditDish() {
       <DishForm
         isEditable={true}
         title={title}
+        section={section}
         description={description}
         price={price}
         tags={tags}
