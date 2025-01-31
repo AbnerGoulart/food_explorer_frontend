@@ -9,7 +9,7 @@ import { api } from "../../api";
 export function NewDish() {
   const [title, setTitle] = useState("")
   const [section, setSection] = useState("")
-  const [price, setPrice] = useState(0.00)
+  const [price, setPrice] = useState(0)
   const [description, setDescription] = useState("")
   const [photo, setPhoto] = useState("../../../public/placeholder.jpg")
 
@@ -22,22 +22,31 @@ export function NewDish() {
     }
 
     try {
-      let body = {
-        title: title,
-        section: section,
-        description: description,
-        price: price,
-      }
-      
-      if (photo) {
-        const fileUploadForm = new FormData();
-        fileUploadForm.append("photo", photo)
+      // let body = {
+      //   title: title,
+      //   section: section,
+      //   description: description,
+      //   price: price,
+      // }
+
+      // if (photo) {
+        const dishUploadForm = new FormData();
+        dishUploadForm.append("photo", photo)
+        dishUploadForm.append("title", title)
+        dishUploadForm.append("section", section)
+        dishUploadForm.append("description", description)
+        dishUploadForm.append("price", price)
+        // dishUploadForm.append("tags", tags)
+
+        const config = {
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
+        }
   
-        await api.post("/dishes/photo", fileUploadForm)
-        body.photo = response.data.photo;
-      }
+        await api.post("/dishes", dishUploadForm, config)
+      // }
       
-      const response = await api.post("/dishes", body)
       navigate("/")
     } catch(error) {
       console.log(error)

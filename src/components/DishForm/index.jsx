@@ -68,11 +68,23 @@ export function DishForm({
   };
 
   const formatPrice = (price) => {
+    if (!price) return "R$ 0,00"; // Evita erro caso seja undefined ou NaN
     return new Intl.NumberFormat("pt-BR", {
       style: "currency",
       currency: "BRL",
       minimumFractionDigits: 2,
     }).format(price);
+  };
+
+  const handlePrice = (e) => {
+    let value = e.target.value.replace(/\D/g, ""); // Remove tudo que não for número
+    if (value === "") {
+      setPrice(""); // Permite que o campo fique vazio
+      return;
+    }
+
+    let numericValue = Number(value) / 100; // Converte centavos para reais
+    setPrice(numericValue);
   };
 
   return (
@@ -93,7 +105,11 @@ export function DishForm({
           <label for="imgUpload" className="custom-file-upload">
             <PiUploadSimpleBold /> Selecione imagem
           </label>
-          <input type="file" id="imgUpload" onChange={(e) => setPhoto(e.target.files[0])}/>
+          <input
+            type="file"
+            id="imgUpload"
+            onChange={(e) => setPhoto(e.target.files[0])}
+          />
         </div>
         <div className="nameInput">
           <p>Nome</p>
@@ -137,8 +153,8 @@ export function DishForm({
           <Input
             type="text"
             placeholder="R$ 00,00"
-            value={formatPrice(price)}
-            onChange={(e) => setPrice(e.target.value)}
+            value={price !== "" ? formatPrice(price) : ""} // Exibe vazio se for apagado
+            onChange={handlePrice}
           />
         </div>
         <div className="descriptionInput">
