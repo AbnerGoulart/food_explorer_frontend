@@ -1,6 +1,7 @@
 import React, {createContext, useEffect, useState} from 'react';
 import { api } from '../api';
 import { useNavigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
 
 export const AuthContext = createContext();
 
@@ -12,29 +13,37 @@ export function AuthProvider ({children}){
     async function signIn(email, password){
       try {
         const response = await api.post('/session', { email: email, password: password });
-        setUser(response.data.user)
-        localStorage.setItem('user', JSON.stringify(response.data.user))
-        setType(response.data.type)
-        localStorage.setItem('type', JSON.stringify(response.data.type))
+        const { token } = response.data
+        const user = jwtDecode(token)
+        const {user_id, type} = JSON.parse(user.sub)
+        console.log(user_id, type)
+        setUser(user_id)
+        localStorage.setItem('token', token)
+        setType(type)
+
+        api.defaults.headers.common['Authorization'] = `Bearer ${token}`
       } catch (error) {
         console.error(error.response.data.message);
       }
     }
 
     function signOut() {
+      localStorage.removeItem('token');
       setUser("");
-      localStorage.removeItem('user');
-      localStorage.removeItem('type');
+      setType(null)
       navigate("/")
     }
 
     useEffect(() => {
-      const storedUser = localStorage.getItem('user');
-      const storedType = localStorage.getItem('type');
+      const token = localStorage.getItem("token")
+      // const storedType = localStorage.getItem('type');
 
-      if (storedUser) {
-        setUser(JSON.parse(storedUser));
-        setType(JSON.parse(storedType));
+      if (token) {
+        const { sub } = jwtDecode(token)
+        const { user_id, type } =  JSON.parse(sub)
+        setUser(user_id);
+        setType(type);
+        api.defaults.headers.common['Authorization'] = `Bearer ${token}`
       } else {
         setUser("");
       }
