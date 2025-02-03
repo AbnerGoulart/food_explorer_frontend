@@ -7,6 +7,7 @@ import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { api, API_BASE_URL } from "../../api";
 
 register();
 
@@ -19,7 +20,7 @@ export function MenuCarousel({ title, items }) {
           <SwiperSlide key={item.id || index}>
             <Card
               title={item.title}
-              img={item.photo}
+              img={`${API_BASE_URL}/files/${item.photo}`}
               price={item.price}
               id={item.id}
               description={item.description}
