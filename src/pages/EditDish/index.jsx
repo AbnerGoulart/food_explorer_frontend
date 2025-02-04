@@ -11,6 +11,7 @@ export function EditDish() {
   const [section, setSection] = useState("");
   const [price, setPrice] = useState();
   const [description, setDescription] = useState("");
+  const [photo, setPhoto] = useState("");
   const [tags, setTags] = useState([]);
   const { id } = useParams();
   const navigate = useNavigate()
@@ -39,8 +40,9 @@ export function EditDish() {
     }
   }
 
-  const updateDish = () => {
-    alert(`${title} atualizado`)
+  const updateDish = async() => {
+    await api.put(`dishes/${id}`)
+    navigate("/")
   }
 
   return (
@@ -56,6 +58,8 @@ export function EditDish() {
         setTags={setTags}
         handleRemoveDish={handleRemoveDish}
         updateDish={updateDish}
+        photo={photo}
+        setPhoto={setPhoto}
       />
       <Footer />
     </Container>
