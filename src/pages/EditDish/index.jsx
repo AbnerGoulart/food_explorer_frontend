@@ -14,7 +14,7 @@ export function EditDish() {
   const [photo, setPhoto] = useState("");
   const [tags, setTags] = useState([]);
   const { id } = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const fetchData = () => {
     api.get(`/dishes/${id}`).then((response) => {
@@ -23,7 +23,7 @@ export function EditDish() {
       setSection(section);
       setPrice(price);
       setDescription(description);
-      setTags(tags.map(tag => tag));
+      setTags(tags.map((tag) => tag));
     });
   };
 
@@ -32,18 +32,37 @@ export function EditDish() {
   }, []);
 
   const handleRemoveDish = async () => {
-    const confirm = window.confirm(`confirma a remoção do prato ${title}?`)
+    const confirm = window.confirm(`Confirma a remoção do prato "${title}"?`);
 
     if (confirm) {
-      await api.delete(`/dishes/${id}`)
-      navigate("/")
+      try {
+        await api.delete(`/dishes/${id}`);
+        navigate("/");
+      } catch (error) {
+        console.error("Erro ao remover o prato:", error);
+        alert("Ocorreu um erro ao remover o prato.");
+      }
     }
-  }
+  };
 
-  const updateDish = async() => {
-    await api.put(`dishes/${id}`)
-    navigate("/")
-  }
+  const updateDish = async () => {
+    const updatedDish = {
+      title,
+      section,
+      price,
+      description,
+      tags,
+      photo,
+    };
+
+    try {
+      await api.put(`/dishes/${id}`, updatedDish);
+      navigate("/");
+    } catch (error) {
+      console.error("Erro ao atualizar o prato:", error);
+      alert("Ocorreu um erro ao atualizar o prato.");
+    }
+  };
 
   return (
     <Container>
