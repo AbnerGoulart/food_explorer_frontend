@@ -87,6 +87,17 @@ export function DishForm({
     setPrice(numericValue);
   };
 
+  const truncateFileName = (name, maxLength = 20) => {
+    if (name.length <= maxLength) return name;
+  
+    const parts = name.split(".");
+    const extension = parts.pop(); // Captura a extensão
+    const baseName = parts.join("."); // Junta o nome restante
+  
+    const visibleChars = Math.floor((maxLength - 3) / 2); // Define quantos caracteres exibir antes e depois dos "..."
+    return `${baseName.slice(0, visibleChars)}...${baseName.slice(-visibleChars)}.${extension}`;
+  };
+  
   return (
     <Container className="edit-wrapper">
       <div className="form-wrapper">
@@ -103,10 +114,11 @@ export function DishForm({
         <div className="imgInput">
           <p>Imagem do prato</p>
           <label for="imgUpload" className="custom-file-upload">
-            <PiUploadSimpleBold /> Selecione imagem
+            <PiUploadSimpleBold /> {photo ? truncateFileName(photo.name, 20) : "Selecione imagem"}
           </label>
           <input
             type="file"
+            accept="image/*"
             id="imgUpload"
             onChange={(e) => setPhoto(e.target.files[0])}
           />
@@ -138,7 +150,7 @@ export function DishForm({
         <div className="ingredientInput">
           <p>Ingredientes</p>
           <div className="ingredients" onKeyDown={keyDown}>
-            {isEditable ? tagItems : null}
+            {tagItems}
             <TagItem
               placeholder="Adicionar"
               isNew={true}

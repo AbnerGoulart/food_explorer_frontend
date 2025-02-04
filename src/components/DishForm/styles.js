@@ -48,6 +48,10 @@ export const Container = styled.div`
         font-weight: 500;
         line-height: 24px;
 
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
         svg {
           color: ${({ theme }) => theme.COLORS.LIGHT_300};
           font-size: 24px;
@@ -138,7 +142,7 @@ export const Container = styled.div`
     .buttons {
       display: flex;
       gap: 2rem;
-      
+
       button {
         width: 100%;
         margin: 1rem auto 3.3125rem;

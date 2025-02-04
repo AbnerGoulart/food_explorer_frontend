@@ -11,7 +11,9 @@ export function NewDish() {
   const [section, setSection] = useState("");
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
-  const [photo, setPhoto] = useState("../../../public/placeholder.jpg");
+  const [photo, setPhoto] = useState("");
+  const [tags, setTags] = useState([]);
+
 
   const navigate = useNavigate();
 
@@ -28,6 +30,7 @@ export function NewDish() {
       dishUploadForm.append("section", section);
       dishUploadForm.append("description", description);
       dishUploadForm.append("price", price);
+      dishUploadForm.append("tags", tags);
 
       const config = {
         headers: {
@@ -36,7 +39,6 @@ export function NewDish() {
       };
 
       await api.post("/dishes", dishUploadForm, config);
-      // }
 
       navigate("/");
     } catch (error) {
@@ -60,6 +62,8 @@ export function NewDish() {
         photo={photo}
         setPhoto={setPhoto}
         handleNewDish={handleNewDish}
+        tags={tags}
+        setTags={setTags}
       />
       <Footer />
     </Container>
