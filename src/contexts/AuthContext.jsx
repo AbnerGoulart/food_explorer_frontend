@@ -14,21 +14,24 @@ export function AuthProvider ({children}){
       try {
         const response = await api.post('/session', { email: email, password: password });
         const { token } = response.data
-        const user = jwtDecode(token)
-        const {user_id, type} = JSON.parse(user.sub)
-        console.log(user_id, type)
-        setUser(user_id)
+        handleToken(token)
         localStorage.setItem('token', token)
-        setType(type)
-
-        api.defaults.headers.common['Authorization'] = `Bearer ${token}`
       } catch (error) {
         console.error(error.response.data.message);
       }
     }
 
+    function handleToken(token) {
+        const { sub } = jwtDecode(token)
+        const {user_id, type} = JSON.parse(sub)
+        setUser(user_id)
+        setType(type)
+        api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+    }
+
     function signOut() {
       localStorage.removeItem('token');
+      delete api.defaults.headers.common["Authorization"];
       setUser("");
       setType(null)
       navigate("/")
@@ -36,14 +39,9 @@ export function AuthProvider ({children}){
 
     useEffect(() => {
       const token = localStorage.getItem("token")
-      // const storedType = localStorage.getItem('type');
 
       if (token) {
-        const { sub } = jwtDecode(token)
-        const { user_id, type } =  JSON.parse(sub)
-        setUser(user_id);
-        setType(type);
-        api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+        handleToken(token)
       } else {
         setUser("");
       }
