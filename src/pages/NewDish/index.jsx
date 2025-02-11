@@ -36,7 +36,6 @@ export function NewDish() {
       };
 
       await api.post("/dishes", dishUploadForm, config);
-      // }
 
       navigate("/");
     } catch (error) {
