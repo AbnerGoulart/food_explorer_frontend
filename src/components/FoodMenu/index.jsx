@@ -5,13 +5,12 @@ import { DishesContext } from '../../contexts/DishesContext';
 
 
 export function FoodMenu(){
-  const {meals, mainDishes, drinks} = useContext(DishesContext)
-  
+  const { menu } = useContext(DishesContext)
+  const menuCarousels = menu && menu.map((section, index) => <MenuCarousel key={index} title={section.title} items={section.data} />)
+
   return(
     <Container>
-      {meals && <MenuCarousel title={meals.title} items={meals.data} />}
-      {mainDishes && <MenuCarousel title={mainDishes.title} items={mainDishes.data} />}
-      {drinks && <MenuCarousel title={drinks.title} items={drinks.data}/>}
+      {menuCarousels}
     </Container>
   )
 }

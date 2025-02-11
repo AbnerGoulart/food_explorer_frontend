@@ -7,23 +7,18 @@ import { NewDish } from '../pages/NewDish'
 import { EditDish } from '../pages/EditDish'
 import { useContext } from 'react'
 import { AuthContext } from '../contexts/AuthContext'
+import { RedirectToHome } from '../pages/RedirectToHome'
 
 export function AppRoutes(){
   const { type } = useContext(AuthContext)
-  const navigate = useNavigate()
-
-  const returToHome = () => {
-    alert("Usuário não autenticado")
-    return <Route path='/' element={<Home />} />
-  }
 
   return (
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/details/:id' element={<Details />} />
       <Route path='/menu' element={<Menu />} />
-      {type === "admin" ? <Route path='/new' element={<NewDish />}/> : returToHome}
-      {type === "admin" ? <Route path='/edit/:id' element={<EditDish />}/> : null}
+      <Route path='/new' element={type == "admin" ? <NewDish /> : <RedirectToHome />} />
+      <Route path='/edit/:id' element={type == "admin" ? <EditDish /> : <RedirectToHome />} />
     </Routes>
   )
 }
