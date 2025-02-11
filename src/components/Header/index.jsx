@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("")
   const { count } = useContext(CartContext);
   const { signOut, type } = useContext(AuthContext);
   const navigate = useNavigate()
@@ -32,6 +33,12 @@ export function Header() {
     navigate("/new")
   }
 
+  const handleKeyDown = () => {
+    if (event.key === 'Enter') {
+      navigate(`/?q=${searchTerm}`)
+    }
+  }
+
   return (
     <Container>
       <div className="wrapper">
@@ -43,6 +50,8 @@ export function Header() {
             icon={PiMagnifyingGlass}
             type="text"
             placeholder="Busque por pratos ou ingredientes"
+            onChange={setSearchTerm(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
         </div>
         <div className="button">
