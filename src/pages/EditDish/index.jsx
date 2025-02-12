@@ -3,7 +3,7 @@ import { Header } from "../../components/Header";
 import { Container } from "./styles";
 import { DishForm } from "../../components/DishForm";
 import { useEffect, useState } from "react";
-import { api } from "../../api";
+import { api } from "../../services/api";
 import { useNavigate, useParams } from "react-router-dom";
 
 export function EditDish() {

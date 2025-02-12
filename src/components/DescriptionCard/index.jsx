@@ -6,7 +6,7 @@ import { Button } from "../Button";
 import { Link } from "react-router-dom";
 import { DetailContext } from "../../contexts/DetailContext";
 import { useContext } from "react";
-import { API_BASE_URL } from "../../api";
+import { API_BASE_URL } from "../../services/api";
 
 export function DescriptionCard() {
   const dish = useContext(DetailContext);
