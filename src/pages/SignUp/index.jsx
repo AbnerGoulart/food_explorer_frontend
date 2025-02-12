@@ -5,7 +5,7 @@ import { ButtonText } from "../../components/ButtonText";
 import { Logo } from "../../components/Logo";
 import { Container } from "./styles";
 import { Input } from "../../components/Input";
-import { api } from "../../api";
+import { api } from "../../services/api";
 import theme from "../../styles/theme";
 
 export function SignUp() {
