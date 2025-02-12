@@ -51,9 +51,12 @@ export function EditDish() {
       section,
       price,
       description,
-      tags,
       photo,
     };
+
+    if (tags.length > 0) {
+      updatedDish.tags = tags
+    }
 
     try {
       await api.put(`/dishes/${id}`, updatedDish);
@@ -70,9 +73,13 @@ export function EditDish() {
       <DishForm
         isEditable={true}
         title={title}
+        setTitle={setTitle}
         section={section}
+        setSection={setSection}
         description={description}
+        setDescription={setDescription}
         price={price}
+        setPrice={setPrice}
         tags={tags}
         setTags={setTags}
         handleRemoveDish={handleRemoveDish}

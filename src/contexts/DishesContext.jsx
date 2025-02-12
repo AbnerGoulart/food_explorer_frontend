@@ -19,7 +19,7 @@ export function DishesProvider ({children}) {
   }
 
   return (
-    <DishesContext.Provider value={{menu}} >
+    <DishesContext.Provider value={{menu, setMenu}} >
       {children}
     </DishesContext.Provider>
   )

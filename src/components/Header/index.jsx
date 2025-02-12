@@ -9,9 +9,13 @@ import { Button } from "../Button";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Input } from "../Input";
 import { useNavigate } from "react-router-dom";
+import { api } from "../../services/api";
+import { DishesContext } from "../../contexts/DishesContext";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("")
+  const setMenu = useContext(DishesContext)
   const { count } = useContext(CartContext);
   const { signOut, type } = useContext(AuthContext);
   const navigate = useNavigate()
@@ -32,6 +36,15 @@ export function Header() {
     navigate("/new")
   }
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      navigate(`/?q=${searchTerm}`)
+      api.get(`/dishes/?q=${searchTerm}`)
+      .then(response => {setMenu(response.data)})
+      .catch(error => console.error("Erro ao buscar pratos:", error))
+    }
+  }
+
   return (
     <Container>
       <div className="wrapper">
@@ -43,6 +56,8 @@ export function Header() {
             icon={PiMagnifyingGlass}
             type="text"
             placeholder="Busque por pratos ou ingredientes"
+            onChange={event => setSearchTerm(event.target.value)}
+            onKeyDown={handleKeyDown}
           />
         </div>
         <div className="button">

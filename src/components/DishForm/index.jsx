@@ -6,7 +6,8 @@ import { PiUploadSimpleBold } from "react-icons/pi";
 import { Input } from "../Input";
 import { FaChevronLeft } from "react-icons/fa";
 import { TagItem } from "../TagItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { api } from "../../services/api";
 
 // Estou declarando um componente denominado DishForm que recebe como prop:
 // - isEditable,
@@ -41,6 +42,17 @@ export function DishForm({
   updateDish,
 }) {
   const [newTag, setNewTag] = useState("");
+  const [categories, setCategories] = useState([])
+
+  useEffect (() => {
+    fetchData()
+  }, [])
+
+  const fetchData = () => {
+    api.get(`/sections`)
+    .then(response => setCategories(response.data))
+    .catch(error => console.error("Erro ao buscar categoria", error))
+  }
 
   const deleteTag = (deleted) => {
     setTags(tags.filter((t) => t !== deleted));
@@ -142,9 +154,11 @@ export function DishForm({
             <option value="" defaultValue="selected">
               Escolha uma categoria
             </option>
-            <option value="meals">-- Refeições</option>
-            <option value="main_dishes">-- Pratos Principais</option>
-            <option value="drinks">-- Bebidas</option>
+            {categories.map((category, index) => (
+              <option key={index} value={category.name}>
+                {category.label}
+              </option>
+            ))}
           </select>
         </div>
         <div className="ingredientInput">
