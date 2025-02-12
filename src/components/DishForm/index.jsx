@@ -7,7 +7,7 @@ import { Input } from "../Input";
 import { FaChevronLeft } from "react-icons/fa";
 import { TagItem } from "../TagItem";
 import { useEffect, useState } from "react";
-import { api } from "../../api";
+import { api } from "../../services/api";
 
 // Estou declarando um componente denominado DishForm que recebe como prop:
 // - isEditable,

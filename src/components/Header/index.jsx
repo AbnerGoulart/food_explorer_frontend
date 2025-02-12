@@ -9,7 +9,7 @@ import { Button } from "../Button";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Input } from "../Input";
 import { useNavigate } from "react-router-dom";
-import { api } from "../../api";
+import { api } from "../../services/api";
 import { DishesContext } from "../../contexts/DishesContext";
 
 export function Header() {
