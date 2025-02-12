@@ -1,21 +1,22 @@
 import { Container, MenuIcon, ReceiptIcon, Counter } from "./styles";
 import { Logo } from "../Logo";
 import { MenuModal } from "../MenuModal";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import { ButtonText } from "../ButtonText";
 import { PiSignOut, PiMagnifyingGlass } from "react-icons/pi";
 import { Button } from "../Button";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Input } from "../Input";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { api } from "../../services/api";
 import { DishesContext } from "../../contexts/DishesContext";
 
 export function Header() {
+  const [searchParams] = useSearchParams();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("")
-  const setMenu = useContext(DishesContext)
+  const [searchTerm, setSearchTerm] = useState(searchParams.get("q"))
+  const {setMenu} = useContext(DishesContext)
   const { count } = useContext(CartContext);
   const { signOut, type } = useContext(AuthContext);
   const navigate = useNavigate()
@@ -56,6 +57,7 @@ export function Header() {
             icon={PiMagnifyingGlass}
             type="text"
             placeholder="Busque por pratos ou ingredientes"
+            value={searchTerm}
             onChange={event => setSearchTerm(event.target.value)}
             onKeyDown={handleKeyDown}
           />
