@@ -4,7 +4,7 @@ import { Container } from "./styles";
 import { DishForm } from "../../components/DishForm";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { api } from "../../api";
+import { api } from "../../services/api";
 
 export function NewDish() {
   const [title, setTitle] = useState("");
