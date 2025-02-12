@@ -42,7 +42,7 @@ export function DishForm({
   updateDish,
 }) {
   const [newTag, setNewTag] = useState("");
-  const [categories, setCategories] = useState([])
+  const [availableSections, setAvailableSection] = useState([])
 
   useEffect (() => {
     fetchData()
@@ -50,7 +50,7 @@ export function DishForm({
 
   const fetchData = () => {
     api.get(`/sections`)
-    .then(response => setCategories(response.data))
+    .then(response => setAvailableSection(response.data))
     .catch(error => console.error("Erro ao buscar categoria", error))
   }
 
@@ -154,9 +154,9 @@ export function DishForm({
             <option value="" defaultValue="selected">
               Escolha uma categoria
             </option>
-            {categories.map((category, index) => (
-              <option key={index} value={category.name}>
-                {category.label}
+            {availableSections.map((availableSection, index) => (
+              <option key={index} value={availableSection.name}>
+                {availableSection.label}
               </option>
             ))}
           </select>

@@ -97,7 +97,7 @@ export function Card({ title, img, price, id, description }) {
         <p>{description}</p>
       </div>
       <span className="price">{formatPrice(price)}</span>
-      <div className="amount">
+      { type === "admin" ? null : <div className="amount">
         <div className="counter">
           <ButtonText onClick={() => dispatch({ type: "decrement" })}>
             <PiMinus />
@@ -108,7 +108,7 @@ export function Card({ title, img, price, id, description }) {
           </ButtonText>
         </div>
         <Button title="incluir" onClick={() => handleAddToCart(title, price)} />
-      </div>
+      </div> }
     </Container>
   );
 }
