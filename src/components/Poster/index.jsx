@@ -1,3 +1,4 @@
+import { API_BASE_URL } from "../../services/api";
 import { Container } from "./styles";
 
 export function Poster() {
@@ -7,7 +8,7 @@ export function Poster() {
         <h1>Sabores inigualáveis</h1>
         <h3>Sinta o cuidado do preparo com ingredientes selecionados</h3>
       </div>
-      <img src="../../../public/card.svg" alt="poster" />
+      <img src={`${API_BASE_URL}/files/card.svg`} alt="imagem do poster" />
     </Container>
   );
 }

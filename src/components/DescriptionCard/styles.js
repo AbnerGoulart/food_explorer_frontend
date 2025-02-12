@@ -17,15 +17,25 @@ export const Container = styled.div`
     max-width: 60rem;
     justify-content: space-between;
     gap: 2rem;
-    padding: 2rem;
-    margin: 2rem auto;
+    margin: 0 auto 9.6rem;
   }
 
   .header {
     width: 100%;
 
     @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
-      
+      width: 100%;
+
+      .backButton {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        font-family: Poppins;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%;
+      }
     }
   }
 

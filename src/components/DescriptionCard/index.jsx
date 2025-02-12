@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { DetailContext } from "../../contexts/DetailContext";
 import { useContext } from "react";
 import { API_BASE_URL } from "../../services/api";
+import { FaChevronLeft } from "react-icons/fa";
 
 export function DescriptionCard() {
   const dish = useContext(DetailContext);
@@ -26,8 +27,8 @@ export function DescriptionCard() {
   return (
     <Container>
       <Link to="/" className="header">
-        <ButtonText>
-          Voltar
+        <ButtonText className="backButton" size={24}>
+          <FaChevronLeft />Voltar
         </ButtonText>
       </Link>
       <div className="wrapper">
