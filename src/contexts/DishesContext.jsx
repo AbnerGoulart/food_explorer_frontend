@@ -12,10 +12,10 @@ export function DishesProvider ({children}) {
   const searchTerm = searchParams.get("q")
 
   useEffect (() => {
-    fetchData()
+    fetchDishes(searchTerm)
   }, [])
 
-  const fetchData = () => {
+  const fetchDishes = (searchTerm) => {
     if (user) {
       const path = searchTerm ? `dishes/?q=${searchTerm}` : '/dishes'
       api.get(path)
@@ -27,7 +27,7 @@ export function DishesProvider ({children}) {
   }
 
   return (
-    <DishesContext.Provider value={{menu, setMenu}} >
+    <DishesContext.Provider value={{menu, setMenu, fetchDishes}} >
       {children}
     </DishesContext.Provider>
   )

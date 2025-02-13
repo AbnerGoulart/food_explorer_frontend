@@ -9,14 +9,13 @@ import { Button } from "../Button";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Input } from "../Input";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { api } from "../../services/api";
 import { DishesContext } from "../../contexts/DishesContext";
 
 export function Header() {
   const [searchParams] = useSearchParams();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState(searchParams.get("q") || "");
-  const { setMenu } = useContext(DishesContext);
+  const { fetchDishes } = useContext(DishesContext);
   const { count } = useContext(CartContext);
   const { signOut, type } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -30,7 +29,7 @@ export function Header() {
   };
 
   const renderMenuModal = () => {
-    return isMenuOpen === true ? <MenuModal toggleMenu={toggleMenu} /> : null;
+    return isMenuOpen === true ? <MenuModal toggleMenu={toggleMenu} searchTerm={searchTerm} setSearchTerm={setSearchTerm} /> : null;
   };
 
   const handleNewDish = () => {
@@ -40,14 +39,8 @@ export function Header() {
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       navigate(`/?q=${searchTerm}`);
-      api
-        .get(`/dishes/?q=${searchTerm}`)
-        .then((response) => {
-          setMenu(response.data);
-        })
-        .catch((error) => console.error("Erro ao buscar pratos:", error));
+      fetchDishes(searchTerm)
     }
-    toggleMenu();
   };
 
   return (
