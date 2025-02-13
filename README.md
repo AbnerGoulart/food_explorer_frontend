@@ -1,6 +1,6 @@
 # Food Explorer Frontend
 
-Frontend do desafio final da formação explorer da Rocketseat. A aplicação é um cardapio digital para um restaurante fictício e está implantanda no endereço: `https://eloquent-churros-082c9d.netlify.app`.
+Frontend do desafio final da formação explorer da Rocketseat. A aplicação é um cardapio digital para um restaurante fictício e está implantanda no endereço: `https://https://foodexplorer-digital.netlify.app/`.
 
 Você poder logar como administrador usando as seguintes credenciais:
 - **email:** admin@foodexplorer.com
