@@ -55,7 +55,7 @@ export function Card({ title, img, price, id, description }) {
     setItems([...items, ...addedItems]);
   };
 
-  const handleEdit = () => {
+  const handleEditPage = () => {
     navigate(`/edit/${id}`);
   };
 
@@ -83,7 +83,7 @@ export function Card({ title, img, price, id, description }) {
       <div className="action">
         <ButtonText>
           {type === "admin" ? (
-            <PiPencilSimple onClick={handleEdit} />
+            <PiPencilSimple onClick={handleEditPage} />
           ) : (
             renderHeart()
           )}

@@ -15,11 +15,11 @@ import { DishesContext } from "../../contexts/DishesContext";
 export function Header() {
   const [searchParams] = useSearchParams();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState(searchParams.get("q"))
-  const {setMenu} = useContext(DishesContext)
+  const [searchTerm, setSearchTerm] = useState(searchParams.get("q"));
+  const { setMenu } = useContext(DishesContext);
   const { count } = useContext(CartContext);
   const { signOut, type } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   async function handleSignOut() {
     await signOut();
@@ -34,17 +34,20 @@ export function Header() {
   };
 
   const handleNewDish = () => {
-    navigate("/new")
-  }
+    navigate("/new");
+  };
 
   const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      navigate(`/?q=${searchTerm}`)
-      api.get(`/dishes/?q=${searchTerm}`)
-      .then(response => {setMenu(response.data)})
-      .catch(error => console.error("Erro ao buscar pratos:", error))
+    if (event.key === "Enter") {
+      navigate(`/?q=${searchTerm}`);
+      api
+        .get(`/dishes/?q=${searchTerm}`)
+        .then((response) => {
+          setMenu(response.data);
+        })
+        .catch((error) => console.error("Erro ao buscar pratos:", error));
     }
-  }
+  };
 
   return (
     <Container>
@@ -58,19 +61,25 @@ export function Header() {
             type="text"
             placeholder="Busque por pratos ou ingredientes"
             value={searchTerm}
-            onChange={event => setSearchTerm(event.target.value)}
+            onChange={(event) => setSearchTerm(event.target.value)}
             onKeyDown={handleKeyDown}
           />
         </div>
         <div className="button">
-          {type === "admin" ? <Button title="Novo prato" onClick={handleNewDish}/> : <Button icon={<ReceiptIcon />} title={`Pedidos (${count})`} />}
+          {type === "admin" ? (
+            <Button title="Novo prato" onClick={handleNewDish} />
+          ) : (
+            <Button icon={<ReceiptIcon />} title={`Pedidos (${count})`} />
+          )}
         </div>
-        { type !== "admin" ? <div className="receiptContainer">
-          <ReceiptIcon />
-          <Counter>
-            <span>{count}</span>
-          </Counter>
-        </div> : null}
+        {type !== "admin" ? (
+          <div className="receiptContainer">
+            <ReceiptIcon />
+            <Counter>
+              <span>{count}</span>
+            </Counter>
+          </div>
+        ) : null}
         <div className="signout">
           <ButtonText onClick={handleSignOut}>
             <PiSignOut />
