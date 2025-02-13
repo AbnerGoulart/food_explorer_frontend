@@ -23,7 +23,7 @@ export function AuthProvider ({children}){
 
     function handleToken(token) {
         const { sub } = jwtDecode(token)
-        const {user_id, type} = JSON.parse(sub)
+        const { user_id, type } = JSON.parse(sub)
         setUser(user_id)
         setType(type)
         api.defaults.headers.common['Authorization'] = `Bearer ${token}`

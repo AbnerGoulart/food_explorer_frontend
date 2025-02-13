@@ -1,10 +1,12 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 import { api } from '../services/api'
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
+import { AuthContext } from './AuthContext';
 
 export const DishesContext = createContext();
 
 export function DishesProvider ({children}) {
+  const { user } = useContext(AuthContext)
   const [ menu, setMenu ] = useState(null)
   const [searchParams] = useSearchParams();
   const searchTerm = searchParams.get("q")
@@ -14,12 +16,14 @@ export function DishesProvider ({children}) {
   }, [])
 
   const fetchData = () => {
-    const path = searchTerm ? `dishes/?q=${searchTerm}` : '/dishes'
-    api.get(path)
-    .then(response => {
-      setMenu(response.data)
-    })
-    .catch(error => console.error("Erro ao buscar pratos:", error))
+    if (user) {
+      const path = searchTerm ? `dishes/?q=${searchTerm}` : '/dishes'
+      api.get(path)
+      .then(response => {
+        setMenu(response.data)
+      })
+      .catch(error => console.error("Erro ao buscar pratos:", error))
+    }
   }
 
   return (

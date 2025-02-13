@@ -15,7 +15,7 @@ import { DishesContext } from "../../contexts/DishesContext";
 export function Header() {
   const [searchParams] = useSearchParams();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState(searchParams.get("q"));
+  const [searchTerm, setSearchTerm] = useState(searchParams.get("q") || "");
   const { setMenu } = useContext(DishesContext);
   const { count } = useContext(CartContext);
   const { signOut, type } = useContext(AuthContext);
