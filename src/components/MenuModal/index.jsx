@@ -1,20 +1,14 @@
 import { Container, BackgroundBlur } from "./styles";
-import { AuthContext, AuthProvider } from "../../contexts/AuthContext";
-import { CartProvider } from "../../contexts/CartContext";
-import { DishesContext, DishesProvider } from "../../contexts/DishesContext";
-import { Header } from "../Header";
-import { Footer } from "../Footer";
+import { AuthContext } from "../../contexts/AuthContext";
+import { DishesContext } from "../../contexts/DishesContext";
 import { ButtonText } from "../ButtonText";
-import { useContext, useState } from "react";
-import { Button } from "../Button";
+import { useContext } from "react";
 import { PiXBold, PiMagnifyingGlass } from "react-icons/pi";
 import { Input } from "../Input";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export function MenuModal({ toggleMenu }) {
-  const [searchParams] = useSearchParams();
-  const [searchTerm, setSearchTerm] = useState(searchParams.get("q"));
-  const { setMenu } = useContext(DishesContext);
+export function MenuModal({ toggleMenu, searchTerm, setSearchTerm }) {
+  const { fetchDishes } = useContext(DishesContext);
   const { signOut, type } = useContext(AuthContext);
   const navigate = useNavigate("");
 
@@ -28,13 +22,9 @@ export function MenuModal({ toggleMenu }) {
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      navigate(`/?q=${searchTerm}`);
-      api
-        .get(`/dishes/?q=${searchTerm}`)
-        .then((response) => {
-          setMenu(response.data);
-        })
-        .catch((error) => console.error("Erro ao buscar pratos:", error));
+      navigate(`/?q=${searchTerm}`)
+      fetchDishes(searchTerm)
+      toggleMenu()
     }
   };
 
