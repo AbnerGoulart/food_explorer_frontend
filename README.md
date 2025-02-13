@@ -1,8 +1,33 @@
-# React + Vite
+# Food Explorer Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend do desafio final da formação explorer da Rocketseat. A aplicação é um cardapio digital para um restaurante fictício e está implantanda no endereço: `https://eloquent-churros-082c9d.netlify.app`.
 
-Currently, two official plugins are available:
+Você poder logar como administrador usando as seguintes credenciais:
+- **email:** admin@foodexplorer.com
+- **senha:** 123456
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Para logar como cliente, realize um cadastro e depois faça o login com o email e senha cadastrados.
+
+## Sumário
+- [Considerações Iniciais](#considerações-iniciais)
+- [Executando em Ambiente Local](#executando-em-ambiente-local)
+- [Deploy](#deploy)
+
+## Considerações iniciais
+A aplicação aponta automaticamente para a API de produção que fica no endereço `https://food-explorer-backend-3dbs.onrender.co`. Caso queira apontar para a API local, basta alterar o arquivo `src/services/api.js`.
+
+## Executando em ambiente local
+1. Instale todas as dependências do projeto:
+```sh
+$ npm install
+```
+
+2. Inicie a aplicação com o comando:
+```sh
+npm run dev
+```
+
+3. Acesse a aplicação pelo navegador no endereço: `http://localhost:5173`.
+
+## Deploy
+O deploy está automatizado. Para disparar um novo deploy, basta realizar o merge da sua branch na branch `main`. O processo será iniciado imediatamente após o merge.
