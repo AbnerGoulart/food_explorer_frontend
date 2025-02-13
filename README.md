@@ -8,10 +8,14 @@ Você poder logar como administrador usando as seguintes credenciais:
 
 Para logar como cliente, realize um cadastro e depois faça o login com o email e senha cadastrados.
 
-<img src="https://github.com/user-attachments/assets/cd553b4d-c996-4ce7-a7eb-9b60db4c64ea" width="300">
-<img src="https://github.com/user-attachments/assets/1317cd57-d07e-48eb-9d47-9c59a70a53e9" width="300">
-<img src="https://github.com/user-attachments/assets/ba7e7515-ded3-4338-a0b3-23624f0ca0e9" width="300">
-<img src="https://github.com/user-attachments/assets/fb8cfdeb-1723-4cf4-bbeb-674d2c975bb8" width="300">
+<img src="https://github.com/user-attachments/assets/cd553b4d-c996-4ce7-a7eb-9b60db4c64ea" width="285">
+<img src="https://github.com/user-attachments/assets/1317cd57-d07e-48eb-9d47-9c59a70a53e9" width="285">
+<img src="https://github.com/user-attachments/assets/ba7e7515-ded3-4338-a0b3-23624f0ca0e9" width="285">
+<img src="https://github.com/user-attachments/assets/fb8cfdeb-1723-4cf4-bbeb-674d2c975bb8" width="285"><br>
+<img src="https://github.com/user-attachments/assets/33f7f09b-b7b5-4339-b4c7-078580c6cda9" height="300">
+<img src="https://github.com/user-attachments/assets/c28f28cd-da99-419d-be72-86ce19780582" height="300">
+<img src="https://github.com/user-attachments/assets/88d5657f-6529-40cd-a49b-abea0befbe6e" height="300">
+<img src="https://github.com/user-attachments/assets/a4d6069f-bcb5-4067-8c71-9dbfd5b699b9" height="300">
 
 ## Sumário
 - [Considerações Iniciais](#considerações-iniciais)
