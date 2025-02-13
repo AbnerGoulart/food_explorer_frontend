@@ -8,10 +8,10 @@ Você poder logar como administrador usando as seguintes credenciais:
 
 Para logar como cliente, realize um cadastro e depois faça o login com o email e senha cadastrados.
 
-![image](https://github.com/user-attachments/assets/cd553b4d-c996-4ce7-a7eb-9b60db4c64ea)
-![image](https://github.com/user-attachments/assets/1317cd57-d07e-48eb-9d47-9c59a70a53e9)
-![image](https://github.com/user-attachments/assets/ba7e7515-ded3-4338-a0b3-23624f0ca0e9)
-![image](https://github.com/user-attachments/assets/fb8cfdeb-1723-4cf4-bbeb-674d2c975bb8)
+<img src="https://github.com/user-attachments/assets/cd553b4d-c996-4ce7-a7eb-9b60db4c64ea" width="300">
+<img src="https://github.com/user-attachments/assets/1317cd57-d07e-48eb-9d47-9c59a70a53e9" width="300">
+<img src="https://github.com/user-attachments/assets/ba7e7515-ded3-4338-a0b3-23624f0ca0e9" width="300">
+<img src="https://github.com/user-attachments/assets/fb8cfdeb-1723-4cf4-bbeb-674d2c975bb8" width="300">
 
 ## Sumário
 - [Considerações Iniciais](#considerações-iniciais)
