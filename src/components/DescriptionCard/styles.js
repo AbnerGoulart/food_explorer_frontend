@@ -11,7 +11,7 @@ export const Container = styled.div`
   width: 80vw;
   max-width: 20rem;
   margin: 1.5rem auto 3rem;
-  font-family: 'Poppins';
+  font-family: "Poppins";
 
   @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
     max-width: 60rem;
@@ -58,6 +58,7 @@ export const Container = styled.div`
   img {
     width: 16.5rem;
     margin: 1rem auto;
+    border-radius: 50%;
 
     @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
       width: 24rem;
@@ -113,6 +114,7 @@ export const Container = styled.div`
 
     @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
       justify-content: flex-start;
+      width: 294px;
     }
 
     .counter {
@@ -123,6 +125,13 @@ export const Container = styled.div`
 
       @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
         padding: 0;
+        span {
+          font-family: 'Roboto';
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 160%;
+        }
       }
     }
 
@@ -148,6 +157,6 @@ export const ReceiptIcon = styled(PiReceiptLight)`
   cursor: pointer;
 
   @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
-    font-size: 1.5rem;
+    display: none;
   }
 `;

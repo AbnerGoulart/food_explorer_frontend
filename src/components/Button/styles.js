@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
 
 export const Container = styled.button`
   width: 100%;
@@ -21,8 +22,10 @@ export const Container = styled.button`
   }
 
   .price {
-    font-size: 1.125rem;
-    font-weight: bold;
+    font-family: 'Poppins';
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-left: 0.5rem;
   }
 
   .title {
@@ -36,5 +39,11 @@ export const Container = styled.button`
 
   svg {
     width: 32px;
+  }
+
+  @media (min-width: ${DEVICE_BREAKPOINTS.LG}) {
+    .price {
+      font-size: 14px;
+    }
   }
 `;
