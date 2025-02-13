@@ -1,7 +1,7 @@
 import { Container, MenuIcon, ReceiptIcon, Counter } from "./styles";
 import { Logo } from "../Logo";
 import { MenuModal } from "../MenuModal";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import { ButtonText } from "../ButtonText";
 import { PiSignOut, PiMagnifyingGlass } from "react-icons/pi";
@@ -47,6 +47,7 @@ export function Header() {
         })
         .catch((error) => console.error("Erro ao buscar pratos:", error));
     }
+    toggleMenu();
   };
 
   return (
